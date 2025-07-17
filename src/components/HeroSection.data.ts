@@ -9,11 +9,7 @@ export const heroData: HeroData = {
   },
   content: {
     title: ['SOFTWARE', 'DEVELOPER'],
-    description: [
-      'I SUPPORT DESIGNERS',
-      'AND AGENCIES WITH',
-      'CREATIVE DEVELOPMENT'
-    ],
+    description: [],
     imageUrl: '/portrait.jpg',
     imageAlt: 'Mukilan - Software Developer'
   },
