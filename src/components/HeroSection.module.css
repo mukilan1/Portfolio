@@ -94,6 +94,7 @@
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 .titleLine {
@@ -104,6 +105,7 @@
 .heroImageContainer {
   margin-bottom: 40px;
   width: fit-content;
+  transition: transform 0.1s ease-out;
 }
 
 .heroImage {
@@ -154,6 +156,7 @@
   bottom: 40px;
   right: 60px;
   text-align: right;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 .nameLine {
