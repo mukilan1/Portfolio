@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './HeroSection.module.css';
 import { HeroSectionProps } from './HeroSection.types';
 import { heroData } from './HeroSection.data';
+import { GradientText } from './ui/gradient-text';
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   name = heroData.personalInfo.name,
@@ -36,7 +37,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className={styles.heroLeft}>
           <h1 className={styles.heroTitle}>
             {heroData.content.title.map((line, index) => (
-              <span key={index} className={styles.titleLine}>{line}</span>
+              <span key={index} className={styles.titleLine}>
+                {line === 'SOFTWARE' ? (
+                  <GradientText className="text-inherit font-inherit">
+                    {line}
+                  </GradientText>
+                ) : (
+                  line
+                )}
+              </span>
             ))}
           </h1>
           
