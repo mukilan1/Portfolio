@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #1a1a2e;
   --foreground: #171717;
   
   /* Gradient Text Colors */
@@ -9,7 +9,7 @@
   --color-2: 140 100% 55%; /* Bright Electric Green */
   --color-3: 210 100% 30%; /* Deep Neon Blue */
   --color-4: 60 100% 70%; /* Light Neon Yellow */
-  --color-5: 295 100% 45%; /* Dark Neon Purple */
+  --color-5: 0 0% 100%; /* White */
   --brand: 50 100% 50%; /* Bright, punchy yellow */
 }
 
@@ -32,6 +32,29 @@
   --animate-gradient-2: gradient-2 12s ease-in-out infinite alternate;
   --animate-gradient-3: gradient-3 12s ease-in-out infinite alternate;
   --animate-gradient-4: gradient-4 12s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-shift {
+  0% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% { 
+    background-position: 100% 50%;
+    filter: hue-rotate(90deg);
+  }
+  50% { 
+    background-position: 100% 100%;
+    filter: hue-rotate(180deg);
+  }
+  75% { 
+    background-position: 0% 100%;
+    filter: hue-rotate(270deg);
+  }
+  100% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg);
+  }
 }
 
 @keyframes gradient-border {
@@ -75,7 +98,7 @@
     --color-2: 140 100% 55%; /* Bright Electric Green */
     --color-3: 210 100% 30%; /* Deep Neon Blue */
     --color-4: 60 100% 70%; /* Light Neon Yellow */
-    --color-5: 295 100% 45%; /* Dark Neon Purple */
+    --color-5: 0 0% 100%; /* White */
     --brand: 50 100% 50%; /* Bright, punchy yellow */
   }
 }
