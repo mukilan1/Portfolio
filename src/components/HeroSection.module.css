@@ -1,0 +1,252 @@
+/* Hero Section Styles */
+.heroContainer {
+  min-height: 100vh;
+  background-color: #e3d4ff;
+  color: #000000;
+  padding: 40px 60px;
+  position: relative;
+}
+
+/* Header Navigation */
+.heroHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.headerInfo {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.headerInfo .name {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.headerInfo .jobTitle {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.headerInfo .location {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.headerNav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.headerNav a {
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #000000;
+  transition: opacity 0.2s ease;
+}
+
+.headerNav a:hover {
+  opacity: 0.7;
+}
+
+.headerNav span {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* Main Content */
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: calc(100vh - 200px);
+  position: relative;
+}
+
+.heroLeft {
+  flex: 1;
+  max-width: 60%;
+}
+
+.heroRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  max-width: 40%;
+  /* Remove content since name is now positioned absolutely */
+}
+
+/* Hero Title */
+.heroTitle {
+  font-size: clamp(60px, 8vw, 100px);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.titleLine {
+  display: block;
+}
+
+/* Hero Image */
+.heroImageContainer {
+  margin-bottom: 40px;
+  width: fit-content;
+}
+
+.heroImage {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Description */
+.heroDescription {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.arrowIcon {
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.arrowIcon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #000000;
+  stroke-width: 2;
+}
+
+.descriptionText {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* Hero Name (Bottom Standalone) */
+.heroName {
+  font-size: clamp(60px, 8vw, 100px);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  text-align: right;
+}
+
+.nameLine {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroContainer {
+    padding: 30px 40px;
+  }
+  
+  .headerInfo {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .heroContent {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+  
+  .heroLeft {
+    max-width: 100%;
+    margin-bottom: 60px;
+  }
+  
+  .heroRight {
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .heroName {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    left: auto;
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    padding: 20px 30px;
+  }
+  
+  .headerInfo {
+    gap: 15px;
+  }
+  
+  .heroImage {
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+  }
+  
+  .heroDescription {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .arrowIcon {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContainer {
+    padding: 20px;
+  }
+  
+  .heroHeader {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .headerInfo {
+    gap: 10px;
+  }
+  
+  .heroImage {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .heroName {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    text-align: right;
+  }
+}
