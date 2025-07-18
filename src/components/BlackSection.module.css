@@ -1,15 +1,15 @@
-/* Fashionista Section Styles */
-.fashionistaSection {
-  min-height: 60vh; /* Reduced from 100vh */
-  background-color: #EEFF00; /* Neon yellow/acid green */
-  color: #000000;
+/* Black Section Styles */
+.blackSection {
+  min-height: 60vh; /* Same reduced height as FashionistaSection */
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text for contrast */
   position: relative;
-  padding: 40px 60px; /* Reduced padding */
+  padding: 40px 60px; /* Same reduced padding */
   display: flex;
   align-items: center;
   justify-content: center;
   /* Initial position for train animation */
-  transform: translateX(-100%);
+  transform: translateX(100%);
   opacity: 0;
   transition: none; /* Remove CSS transitions, using JS animation */
 }
@@ -43,7 +43,7 @@
   letter-spacing: -0.01em;
   line-height: 1.1;
   margin: 0;
-  color: #000000;
+  color: #ffffff; /* White text */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -54,7 +54,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0;
-  color: #000000;
+  color: #ffffff; /* White text */
   opacity: 0.8;
 }
 
@@ -71,7 +71,7 @@
   text-transform: uppercase;
   letter-spacing: 0.3px;
   margin: 0;
-  color: #000000;
+  color: #ffffff; /* White text */
 }
 
 .bulletList {
@@ -87,21 +87,21 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #000000;
+  color: #ffffff; /* White text */
   text-transform: capitalize;
 }
 
 /* Shop Button */
 .shopButton {
   background-color: transparent;
-  border: 2px solid #000000;
+  border: 2px solid #ffffff; /* White border */
   border-radius: 5px;
   padding: 12px 24px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #000000;
+  color: #ffffff; /* White text */
   cursor: pointer;
   transition: all 0.2s ease;
   width: fit-content;
@@ -109,8 +109,8 @@
 }
 
 .shopButton:hover {
-  background-color: #000000;
-  color: #EEFF00;
+  background-color: #ffffff; /* White background on hover */
+  color: #000000; /* Black text on hover */
 }
 
 /* Right Content - Year Display */
@@ -130,7 +130,7 @@
   font-size: clamp(80px, 12vw, 140px);
   font-weight: 900;
   line-height: 0.8;
-  color: #000000;
+  color: #ffffff; /* White text */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   position: relative;
 }
@@ -140,14 +140,14 @@
   position: relative;
   display: block;
   text-shadow: 
-    2px 0 #000000,
-    -2px 0 #000000,
-    0 2px #000000,
-    0 -2px #000000,
-    1px 1px #000000,
-    -1px -1px #000000,
-    1px -1px #000000,
-    -1px 1px #000000;
+    2px 0 #ffffff,
+    -2px 0 #ffffff,
+    0 2px #ffffff,
+    0 -2px #ffffff,
+    1px 1px #ffffff,
+    -1px -1px #ffffff,
+    1px -1px #ffffff,
+    -1px 1px #ffffff;
 }
 
 /* 3D Glitch Effect */
@@ -158,7 +158,7 @@
   top: 0;
   left: 2px;
   z-index: -1;
-  color: rgba(238, 255, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   text-shadow: none;
 }
 
@@ -189,7 +189,7 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .fashionistaSection {
+  .blackSection {
     padding: 30px 40px;
     min-height: 50vh; /* Reduced height for tablets */
   }
@@ -214,7 +214,7 @@
 }
 
 @media (max-width: 768px) {
-  .fashionistaSection {
+  .blackSection {
     padding: 20px 30px;
     min-height: 45vh; /* Reduced height for mobile */
   }
@@ -234,7 +234,7 @@
 }
 
 @media (max-width: 480px) {
-  .fashionistaSection {
+  .blackSection {
     padding: 15px 20px;
     min-height: 40vh; /* Reduced height for small mobile */
   }

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
-import styles from './FashionistaSection.module.css';
+import styles from './BlackSection.module.css';
 
-const FashionistaSection: React.FC = () => {
+const BlackSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -22,9 +22,9 @@ const FashionistaSection: React.FC = () => {
         (viewportHeight - sectionTop) / (viewportHeight + sectionHeight)
       ));
 
-      // Train-like animation: from left (-100%) through center (0%) to right (100%)
-      // Maps scroll progress 0->1 to transform -100% -> 100%
-      const translateXPercent = (scrollProgress * 200) - 100; // -100% to +100%
+      // Train-like animation: from right (100%) through center (0%) to left (-100%)
+      // Maps scroll progress 0->1 to transform 100% -> -100%
+      const translateXPercent = 100 - (scrollProgress * 200); // 100% to -100%
       
       if (sectionRef.current) {
         sectionRef.current.style.transform = `translateX(${translateXPercent}%)`;
@@ -41,7 +41,7 @@ const FashionistaSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.fashionistaSection}>
+    <section ref={sectionRef} className={styles.blackSection}>
       <div className={styles.container}>
         {/* Left Content */}
         <div className={styles.leftContent}>
@@ -81,4 +81,4 @@ const FashionistaSection: React.FC = () => {
   );
 };
 
-export default FashionistaSection;
+export default BlackSection;

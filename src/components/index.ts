@@ -8,3 +8,6 @@ export { default as ScrollingSection } from './ScrollingSection';
 
 // Fashionista Section Component Exports
 export { default as FashionistaSection } from './FashionistaSection';
+
+// Black Section Component Exports
+export { default as BlackSection } from './BlackSection';
