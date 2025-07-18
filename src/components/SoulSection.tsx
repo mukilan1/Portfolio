@@ -26,8 +26,8 @@ const SoulSection: React.FC = () => {
       letterRefs.current.forEach((letter, index) => {
         if (!letter) return;
 
-        const speeds = [0.5, -0.8, 0.6, -0.4]; // Different speeds for C, O, D, E
-        const baseOffset = scrollProgress * 100 * speeds[index];
+        const speeds = [1.5, -2.2, 1.8, -1.2]; // Increased speeds for C, O, D, E
+        const baseOffset = scrollProgress * 150 * speeds[index]; // Increased multiplier from 100 to 150
         
         letter.style.transform = `translateY(${baseOffset}px)`;
       });
