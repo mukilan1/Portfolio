@@ -11,3 +11,6 @@ export { default as FashionistaSection } from './FashionistaSection';
 
 // Black Section Component Exports
 export { default as BlackSection } from './BlackSection';
+
+// Soul Section Component Exports
+export { default as SoulSection } from './SoulSection';

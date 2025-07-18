@@ -1,0 +1,297 @@
+/* CODE Section Styles */
+.soulSection {
+  min-height: 100vh;
+  background-color: #D7A9A3; /* Soft dusty pink */
+  color: #000000;
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
+  position: relative;
+}
+
+/* Individual Column Styling */
+.column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.column:last-child {
+  border-right: none;
+}
+
+/* Letter Container */
+.letterContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+/* Main Letters C, D, E */
+.letter {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: clamp(200px, 25vw, 400px);
+  font-weight: 900;
+  color: #000000;
+  line-height: 0.8;
+  text-align: center;
+  letter-spacing: -0.05em;
+  transition: transform 0.1s ease-out;
+}
+
+/* Special O Letter with Image Window */
+.oLetterContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letterO {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: clamp(200px, 25vw, 400px);
+  font-weight: 900;
+  color: #000000;
+  line-height: 0.8;
+  text-align: center;
+  letter-spacing: -0.05em;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.1s ease-out;
+}
+
+/* Image Window - Visible only inside O */
+.imageWindow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(150px, 18vw, 300px);
+  height: clamp(150px, 18vw, 300px);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  /* Clip path to create perfect circular window */
+  clip-path: circle(50% at center);
+}
+
+.portraitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(20%) saturate(120%) hue-rotate(-10deg); /* Warm orange/red tones */
+}
+
+/* Text Overlay inside O */
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  width: 80%;
+}
+
+.overlayText {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(10px, 1.2vw, 16px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Text Block for U Column */
+.textBlock {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  max-width: 80%;
+  text-align: left;
+}
+
+.paragraphText {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 500;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+}
+
+.arrow {
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: #000000;
+  margin-top: 5px;
+}
+
+/* Copyright Text for L Column */
+.copyrightText {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  transform-origin: bottom right;
+}
+
+.verticalText {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(10px, 0.8vw, 12px);
+  font-weight: 400;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Column Numbers */
+.columnNumber {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 600;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr; /* 2x2 grid for tablets */
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .column {
+    min-height: 50vh;
+    padding: 30px 15px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .textBlock {
+    bottom: 60px;
+    right: 15px;
+  }
+  
+  .copyrightText {
+    bottom: 30px;
+    right: 15px;
+  }
+  
+  .columnNumber {
+    bottom: 30px;
+    left: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Single column for mobile */
+    grid-template-rows: repeat(4, 1fr);
+  }
+  
+  .column {
+    min-height: 25vh;
+    padding: 20px 10px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .column:last-child {
+    border-bottom: none;
+  }
+  
+  .letter,
+  .letterO {
+    font-size: clamp(120px, 30vw, 200px);
+  }
+  
+  .imageWindow {
+    width: clamp(100px, 25vw, 150px);
+    height: clamp(100px, 25vw, 150px);
+  }
+  
+  .textBlock {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 20px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .copyrightText {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 20px;
+    transform: none;
+  }
+  
+  .verticalText {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+  }
+}
+
+@media (max-width: 480px) {
+  .soulSection {
+    min-height: 100vh;
+  }
+  
+  .container {
+    height: auto;
+  }
+  
+  .column {
+    min-height: 20vh;
+    padding: 15px 8px;
+  }
+  
+  .letter,
+  .letterO {
+    font-size: clamp(80px, 35vw, 150px);
+  }
+  
+  .imageWindow {
+    width: clamp(80px, 30vw, 120px);
+    height: clamp(80px, 30vw, 120px);
+  }
+  
+  .paragraphText {
+    font-size: clamp(10px, 2.5vw, 12px);
+  }
+  
+  .overlayText {
+    font-size: clamp(8px, 2vw, 12px);
+  }
+}
