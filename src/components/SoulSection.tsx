@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import styles from './SoulSection.module.css';
 
 const SoulSection: React.FC = () => {
@@ -54,37 +53,21 @@ const SoulSection: React.FC = () => {
               C
             </span>
           </div>
-          <div className={styles.columnNumber}>01</div>
         </div>
 
-        {/* Column 2: "O" with Portrait */}
+        {/* Column 2: "O" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <div className={styles.oLetterContainer}>
-              <span 
-                ref={(el) => { letterRefs.current[1] = el; }}
-                className={styles.letterO}
-              >
-                O
-              </span>
-              <div className={styles.imageWindow}>
-                <Image
-                  src="/portrait.jpg"
-                  alt="Portrait"
-                  width={400}
-                  height={600}
-                  className={styles.portraitImage}
-                />
-                <div className={styles.textOverlay}>
-                  <span className={styles.overlayText}>FOLLOW YOUR DREAMS</span>
-                </div>
-              </div>
-            </div>
+            <span 
+              ref={(el) => { letterRefs.current[1] = el; }}
+              className={styles.letterO}
+            >
+              O
+            </span>
           </div>
-          <div className={styles.columnNumber}>02</div>
         </div>
 
-        {/* Column 3: "D" with Text Block */}
+        {/* Column 3: "D" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
             <span 
@@ -94,10 +77,9 @@ const SoulSection: React.FC = () => {
               D
             </span>
           </div>
-          <div className={styles.columnNumber}>03</div>
         </div>
 
-        {/* Column 4: "E" with Copyright */}
+        {/* Column 4: "E" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
             <span 
@@ -107,10 +89,6 @@ const SoulSection: React.FC = () => {
               E
             </span>
           </div>
-          <div className={styles.copyrightText}>
-            <span className={styles.verticalText}>COPYRIGHT © 2020</span>
-          </div>
-          <div className={styles.columnNumber}>04</div>
         </div>
       </div>
     </section>

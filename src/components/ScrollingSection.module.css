@@ -3,7 +3,7 @@
   min-height: 100vh;
   background-color: #ffffff;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 100px 60px;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@
 
 .position2 {
   top: 25%;
-  right: 15%;
+  right: 20%;
   z-index: 3;
 }
 
@@ -101,7 +101,7 @@
 
 .position4 {
   top: 70%;
-  right: 10%;
+  right: 15%;
   z-index: 1;
 }
 
