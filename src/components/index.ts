@@ -18,5 +18,8 @@ export { default as SoulSection } from './SoulSection';
 // Anime Catalog Section Component Exports
 export { default as AnimeCatalogSection } from './AnimeCatalogSection';
 
+// Premium Boxes Section Component Exports
+export { default as PremiumBoxesSection } from './PremiumBoxesSection';
+
 // Empty Section Component Exports
 export { default as EmptySection } from './EmptySection';

@@ -1,0 +1,213 @@
+/* Premium Boxes Section */
+.premiumBoxesSection {
+  width: 100%;.premiumBox:hover {
+  transform: translateX(0);
+}-height: 80vh;
+  background: #f8f9fa;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.boxesWrapper {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Premium Box Base Styling */
+.premiumBox {
+  width: 800px;
+  height: 500px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: none;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.premiumBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.premiumBox:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.premiumBox:hover::before {
+  opacity: 1;
+}
+
+/* Red Box Styling */
+.redBox {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  border: 2px solid #ef4444;
+}
+
+/* Black Box Styling */
+.blackBox {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%);
+  border: 2px solid #374151;
+}
+
+/* Box Numbers */
+.boxNumber {
+  font-size: 150px;
+  font-weight: 900;
+  font-family: 'Arial', sans-serif;
+  line-height: 1;
+  letter-spacing: -5px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+/* Red box number (black text) */
+.redBox .boxNumber {
+  color: #000000;
+  text-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Black box number (white text) */
+.blackBox .boxNumber {
+  color: #ffffff;
+  text-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Premium Effects */
+.redBox::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff3838, #c44569);
+  background-size: 400% 400%;
+  border-radius: 22px;
+  z-index: -1;
+  animation: premiumGlow 3s ease-in-out infinite;
+}
+
+.blackBox::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #4a5568, #2d3748, #1a202c, #000000);
+  background-size: 400% 400%;
+  border-radius: 22px;
+  z-index: -1;
+  animation: premiumGlowDark 3s ease-in-out infinite;
+}
+
+@keyframes premiumGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes premiumGlowDark {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premiumBoxesSection {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .boxesWrapper {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .premiumBox {
+    width: 600px;
+    height: 400px;
+  }
+  
+  .boxNumber {
+    font-size: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .premiumBoxesSection {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .boxesWrapper {
+    padding: 0;
+    margin: 0;
+    gap: 0;
+  }
+  
+  .premiumBox {
+    width: 400px;
+    height: 300px;
+  }
+  
+  .boxNumber {
+    font-size: 100px;
+  }
+}
