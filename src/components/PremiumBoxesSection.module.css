@@ -83,13 +83,15 @@
 
 /* Box Numbers */
 .boxNumber {
-  font-size: 150px;
+  font-size: 60px;
   font-weight: 900;
   font-family: 'Arial', sans-serif;
   line-height: 1;
   letter-spacing: -5px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  position: relative;
+  position: absolute;
+  top: 20px;
+  left: 20px;
   z-index: 2;
 }
 
@@ -181,7 +183,7 @@
   }
   
   .boxNumber {
-    font-size: 120px;
+    font-size: 50px;
   }
 }
 
@@ -208,6 +210,6 @@
   }
   
   .boxNumber {
-    font-size: 100px;
+    font-size: 40px;
   }
 }
