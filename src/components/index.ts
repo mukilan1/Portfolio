@@ -15,5 +15,8 @@ export { default as BlackSection } from './BlackSection';
 // Soul Section Component Exports
 export { default as SoulSection } from './SoulSection';
 
+// Anime Catalog Section Component Exports
+export { default as AnimeCatalogSection } from './AnimeCatalogSection';
+
 // Empty Section Component Exports
 export { default as EmptySection } from './EmptySection';

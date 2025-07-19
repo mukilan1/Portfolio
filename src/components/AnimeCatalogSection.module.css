@@ -1,0 +1,434 @@
+/* 🖼️ Full Layout Overview */
+.animeCatalogSection {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid of 4 cards - horizontal row, evenly spaced */
+.cardsGrid {
+  display: flex;
+  gap: 30px; /* 20-30px spacing between cards */
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Individual card styling */
+.animeCard {
+  width: 300px; /* 280-300px as specified */
+  height: 500px;
+  background: #ffffff; /* White or light neutral for card base */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* 🎨 Image Block (Top Section) - Takes top ~65-70% of card height */
+.imageBlock {
+  width: 100%;
+  height: 320px; /* ~65% of 500px card height */
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 🔖 Genre Tag - Top-right overlaid, tight margin */
+.genreTag {
+  position: absolute;
+  top: 10px; /* ~10px Y offset */
+  right: 20px; /* ~220+ X offset from left */
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 12px; /* Tight, but clear and readable */
+  border-radius: 20px; /* Pill-shaped badge */
+  z-index: 10;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.genreText {
+  color: white;
+  font-family: inherit;
+}
+
+/* 🧾 Title + Description (Bottom Text Block) */
+.textBlock {
+  padding: 20px; /* ~10-20px margins as specified */
+  height: 180px; /* Remaining ~35% of card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Title styling - Bold, sans-serif, black, medium-large */
+.cardTitle {
+  font-size: 22px; /* Medium-large */
+  font-weight: 700; /* Bold */
+  color: #000000; /* Black */
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  text-align: left; /* Left-aligned per card */
+}
+
+/* Description styling - Regular sans-serif, grey, compact line height */
+.cardDescription {
+  font-size: 14px;
+  font-weight: 400; /* Regular */
+  color: #666666; /* Grey */
+  line-height: 1.4; /* Compact */
+  margin: 0;
+  text-align: left; /* Left-aligned per card */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+/* 🔴 Card 1 – "Attack on Titan" - Red, crimson, black, orange hues */
+.attackOnTitanImage {
+  background: linear-gradient(135deg, 
+    #8b0000 0%,   /* Deep red */
+    #dc143c 25%,  /* Crimson */
+    #ff4500 50%,  /* Orange red */
+    #000000 75%,  /* Black */
+    #ff6347 100%  /* Tomato */
+  );
+}
+
+.attackOnTitanImage .genreTag {
+  background: #8b0000; /* Deep red */
+}
+
+/* Eren Jaeger silhouette with dual blades */
+.erenSilhouette {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 120px;
+  background: #000000;
+  clip-path: polygon(45% 0%, 55% 0%, 60% 20%, 65% 40%, 70% 60%, 60% 80%, 50% 100%, 40% 80%, 30% 60%, 35% 40%, 40% 20%);
+  z-index: 5;
+}
+
+.dualBlades {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 60px;
+  z-index: 6;
+}
+
+.dualBlades::before,
+.dualBlades::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 40px;
+  background: #c0c0c0;
+  border-radius: 2px;
+}
+
+.dualBlades::before {
+  left: 30%;
+  transform: rotate(-30deg);
+}
+
+.dualBlades::after {
+  right: 30%;
+  transform: rotate(30deg);
+}
+
+/* Bright white sun center-left */
+.brightSun {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ffffff 0%, #ffeb3b 70%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* ⚫ Card 2 – "Demon Slayer" - Washed beige, red, black ink */
+.demonSlayerImage {
+  background: linear-gradient(180deg, 
+    #f5f5dc 0%,   /* Beige */
+    #deb887 30%,  /* Burlywood */
+    #8b0000 60%,  /* Dark red */
+    #000000 100%  /* Black */
+  );
+}
+
+.demonSlayerImage .genreTag {
+  background: #4a4a4a; /* Dark grey */
+}
+
+/* Giant red sun with black brushstroke dragon */
+.giantRedSun {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #dc143c 0%, #8b0000 70%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.dragonSilhouette {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  width: 80px;
+  height: 80px;
+  background: #000000;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 90% 40%, 95% 60%, 80% 80%, 60% 90%, 40% 85%, 20% 80%, 0% 60%, 5% 40%, 10% 20%);
+  opacity: 0.7;
+}
+
+/* Tanjiro silhouette on foggy ground */
+.tanjiroSilhouette {
+  position: absolute;
+  bottom: 40px;
+  left: 40%;
+  width: 60px;
+  height: 100px;
+  background: #000000;
+  clip-path: polygon(40% 0%, 60% 0%, 65% 30%, 70% 60%, 60% 90%, 50% 100%, 40% 90%, 30% 60%, 35% 30%);
+}
+
+.foggyGround {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.6) 100%);
+}
+
+/* 🟡 Card 3 – "Cowboy Bebop" - Yellow ochre, red, black */
+.cowboyBebopImage {
+  background: linear-gradient(45deg, 
+    #daa520 0%,   /* Goldenrod */
+    #b8860b 25%,  /* Dark goldenrod */
+    #8b0000 50%,  /* Dark red */
+    #000000 75%,  /* Black */
+    #ff8c00 100%  /* Dark orange */
+  );
+}
+
+.cowboyBebopImage .genreTag {
+  background: #000000; /* Black circle */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Spike Spiegel (foreground, right) */
+.spikeSilhouette {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 70px;
+  height: 140px;
+  background: #000000;
+  clip-path: polygon(45% 0%, 55% 0%, 65% 25%, 70% 50%, 75% 75%, 65% 90%, 50% 100%, 35% 90%, 25% 75%, 30% 50%, 35% 25%);
+  z-index: 5;
+}
+
+/* Faye Valentine (left) */
+.fayeSilhouette {
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+  width: 50px;
+  height: 110px;
+  background: #000000;
+  clip-path: polygon(40% 0%, 60% 0%, 70% 30%, 65% 60%, 70% 80%, 55% 95%, 45% 95%, 30% 80%, 35% 60%, 30% 30%);
+  z-index: 3;
+  opacity: 0.7;
+}
+
+.neoNoirBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 0, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, transparent 60%);
+}
+
+/* 🟠 Card 4 – "One Piece" - Orange, sepia, black */
+.onePieceImage {
+  background: linear-gradient(135deg, 
+    #ff8c00 0%,   /* Dark orange */
+    #ffa500 25%,  /* Orange */
+    #daa520 50%,  /* Goldenrod */
+    #8b4513 75%,  /* Saddle brown */
+    #000000 100%  /* Black */
+  );
+}
+
+.onePieceImage .genreTag {
+  background: #8b0000; /* Red background */
+}
+
+/* Luffy silhouette */
+.luffySilhouette {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65px;
+  height: 120px;
+  background: #000000;
+  clip-path: polygon(42% 0%, 58% 0%, 62% 20%, 68% 40%, 72% 60%, 65% 80%, 55% 95%, 45% 95%, 35% 80%, 28% 60%, 32% 40%, 38% 20%);
+  z-index: 5;
+}
+
+/* Setting sun */
+.settingSun {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ffeb3b 0%, #ff8c00 60%, #ff4500 100%);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Tall ships */
+.tallShips {
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  width: 60px;
+  height: 80px;
+  background: #000000;
+  clip-path: polygon(10% 100%, 90% 100%, 95% 80%, 85% 60%, 90% 40%, 80% 20%, 70% 10%, 30% 10%, 20% 20%, 10% 40%, 15% 60%, 5% 80%);
+  opacity: 0.6;
+}
+
+.pirateFlags {
+  position: absolute;
+  top: 80px;
+  right: 50px;
+  width: 30px;
+  height: 20px;
+  background: #8b0000;
+  clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%);
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cardsGrid {
+    gap: 20px;
+  }
+  
+  .animeCard {
+    width: 260px;
+    height: 450px;
+  }
+  
+  .imageBlock {
+    height: 280px;
+  }
+  
+  .textBlock {
+    height: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  .animeCatalogSection {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  
+  .cardsGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .animeCard {
+    width: 100%;
+    max-width: 350px;
+    height: 500px;
+  }
+  
+  .imageBlock {
+    height: 320px;
+  }
+  
+  .textBlock {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animeCard {
+    max-width: 300px;
+    height: 450px;
+  }
+  
+  .imageBlock {
+    height: 280px;
+  }
+  
+  .textBlock {
+    height: 170px;
+    padding: 15px;
+  }
+  
+  .cardTitle {
+    font-size: 20px;
+  }
+  
+  .cardDescription {
+    font-size: 13px;
+  }
+}
