@@ -54,9 +54,6 @@ const ScrollingSection: React.FC = () => {
           <span className={styles.titleLine}>CREATIVE</span>
           <span className={styles.titleLine}>WORK</span>
         </h2>
-        <p className={styles.subtitle}>
-          Explore my portfolio of projects and creative solutions
-        </p>
       </div>
 
       <div className={styles.imageContainer}>
