@@ -1,0 +1,259 @@
+/* Boxing Fight Section - Pixel-perfect implementation */
+.boxingFightSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0D0D0E;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slideInFromLeft 1.5s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Empty white section above Boxing Fight Section */
+.emptyWhiteSection {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #FFFFFF;
+  z-index: 1;
+}
+
+/* Left-to-right slide animation */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Background decorative number - Made darker and less visible */
+.backgroundNumber {
+  position: absolute;
+  font-size: 200px;
+  font-weight: 200;
+  color: #0A0A0A;
+  opacity: 0.05;
+  z-index: 1;
+  top: 150px;
+  left: 120px;
+  line-height: 1;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Main content container - Grid layout */
+.contentContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Left side text block */
+.textBlock {
+  padding-left: 120px;
+  padding-top: 150px;
+  max-width: 600px;
+  z-index: 3;
+}
+
+.mainHeading {
+  font-size: 64px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin: 0 0 24px 0;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+}
+
+.viewCaseLink {
+  font-size: 14px;
+  font-weight: 400;
+  color: #BBBBBB;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s ease;
+}
+
+.viewCaseLink:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/* Right side image container */
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-right: 40px;
+  z-index: 3;
+}
+
+.boxerImage {
+  width: 500px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Slider indicator - Bottom left */
+.sliderIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 120px;
+  display: flex;
+  gap: 12px;
+  z-index: 4;
+}
+
+.indicatorLine {
+  width: 30px;
+  height: 2px;
+  background-color: #2A2A2A;
+  transition: background-color 0.3s ease;
+}
+
+.indicatorLine.active {
+  background-color: #FF3D3D;
+}
+
+/* Social links - Bottom right */
+.socialLinks {
+  position: absolute;
+  bottom: 30px;
+  right: 120px;
+  display: flex;
+  gap: 25px;
+  z-index: 4;
+}
+
+.socialLink {
+  font-size: 12px;
+  font-weight: 300;
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #BBBBBB;
+}
+
+/* Diagonal shadow overlay */
+.diagonalShadow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+  z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .backgroundNumber {
+    font-size: 150px;
+    left: 80px;
+    top: 100px;
+  }
+  
+  .textBlock {
+    padding-left: 80px;
+    padding-top: 100px;
+  }
+  
+  .mainHeading {
+    font-size: clamp(32px, 5vw, 64px);
+  }
+  
+  .sliderIndicator {
+    left: 80px;
+  }
+  
+  .socialLinks {
+    right: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 40px;
+    padding: 0 40px;
+  }
+  
+  .textBlock {
+    padding-left: 0;
+    padding-top: 80px;
+    order: 2;
+    text-align: center;
+  }
+  
+  .imageContainer {
+    padding-right: 0;
+    order: 1;
+  }
+  
+  .boxerImage {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .backgroundNumber {
+    font-size: 100px;
+    left: 20px;
+    top: 60px;
+  }
+  
+  .sliderIndicator {
+    left: 40px;
+    bottom: 20px;
+  }
+  
+  .socialLinks {
+    right: 40px;
+    bottom: 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  
+  .backgroundNumber {
+    font-size: 80px;
+    opacity: 0.03;
+    color: #0A0A0A;
+  }
+  
+  .textBlock {
+    padding-top: 60px;
+  }
+}
