@@ -1,4 +1,4 @@
-import { HeroSection, ScrollingSection, FashionistaSection, BlackSection, SoulSection, AnimeCatalogSection, PremiumBoxesSection, EmptySection, BoxingFightSection } from '../components';
+import { HeroSection, ScrollingSection, FashionistaSection, BlackSection, SoulSection, AnimeCatalogSection, PremiumBoxesSection, EmptySection, BoxingFightSection, XFLEXOSection } from '../components';
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <AnimeCatalogSection />
       <PremiumBoxesSection />
       <BoxingFightSection />
+      <XFLEXOSection />
       <EmptySection />
     </div>
   );
