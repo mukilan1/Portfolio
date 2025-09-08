@@ -1,17 +1,29 @@
 /* Boxing Fight Section - Pixel-perfect implementation */
 .boxingFightSection {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  background-color: #0D0D0E;
+  width: calc(100% - 80px);
+  height: calc(100vh - 80px);
+  margin: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
   display: flex;
   align-items: center;
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
-  opacity: 0;
-  transform: translateX(-100px);
-  animation: slideInFromLeft 1.5s ease-out forwards;
-  animation-delay: 0.3s;
+  opacity: 1;
+  transform: scale(0.8) rotate(-5deg) translateZ(0); /* Added translateZ for hardware acceleration */
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); /* Faster, smoother easing */
+  border-radius: 24px;
+  will-change: transform; /* Performance hint for browser */
+  backface-visibility: hidden; /* Additional performance optimization */
+  perspective: 1000px; /* 3D context for better performance */
+}
+
+/* Animation trigger class - smooth transition to final state */
+.boxingFightSection.animate {
+  transform: scale(1) rotate(0deg) translateZ(0); /* Hardware acceleration for smooth animation */
+  backface-visibility: hidden; /* Performance optimization */
 }
 
 /* Empty white section above Boxing Fight Section */
@@ -21,18 +33,6 @@
   height: 200px;
   background-color: #FFFFFF;
   z-index: 1;
-}
-
-/* Left-to-right slide animation */
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 /* Background decorative number - Made darker and less visible */
@@ -194,6 +194,13 @@
   .socialLinks {
     right: 80px;
   }
+  
+  .boxingFightSection {
+    width: calc(100% - 60px);
+    height: calc(100vh - 60px);
+    margin: 30px;
+    border-radius: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -239,6 +246,13 @@
     flex-direction: column;
     gap: 15px;
   }
+  
+  .boxingFightSection {
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+    margin: 20px;
+    border-radius: 16px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -255,5 +269,12 @@
   
   .textBlock {
     padding-top: 60px;
+  }
+  
+  .boxingFightSection {
+    width: calc(100% - 20px);
+    height: calc(100vh - 20px);
+    margin: 10px;
+    border-radius: 12px;
   }
 }

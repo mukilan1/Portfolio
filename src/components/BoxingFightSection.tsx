@@ -1,12 +1,49 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './BoxingFightSection.module.css';
 
 const BoxingFightSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const currentRef = sectionRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Use requestAnimationFrame for smoother performance
+        requestAnimationFrame(() => {
+          entries.forEach((entry) => {
+            const isInView = entry.isIntersecting && entry.intersectionRatio > 0.2; // Reduced threshold
+            if (isInView !== isVisible) { // Only update if state actually changed
+              setIsVisible(isInView);
+            }
+          });
+        });
+      },
+      {
+        threshold: [0, 0.2, 0.5, 1], // Fewer thresholds for better performance
+        rootMargin: '-10% 0px -10% 0px' // Smaller margin for earlier detection
+      }
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [isVisible]); // Include isVisible to prevent unnecessary re-renders // Empty dependency array to prevent re-creation
+
   return (
-    <section className={styles.boxingFightSection}>
+    <section 
+      ref={sectionRef} 
+      className={`${styles.boxingFightSection} ${isVisible ? styles.animate : ''}`}
+    >
       {/* Background overlay number */}
       <div className={styles.backgroundNumber}>01</div>
       
