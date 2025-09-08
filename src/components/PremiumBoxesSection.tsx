@@ -81,14 +81,14 @@ const PremiumBoxesSection: React.FC = () => {
           <div className={styles.boxesWrapper}>
             
             {/* Left Box - Red with Black Text */}
-            <div className={styles.premiumBox + ' ' + styles.redBox}>
+            {/* <div className={styles.premiumBox + ' ' + styles.redBox}>
               <div className={styles.boxNumber}>01</div>
-            </div>
+            </div> */}
             
             {/* Right Box - Black with White Text */}
-            <div className={styles.premiumBox + ' ' + styles.blackBox}>
+            {/* <div className={styles.premiumBox + ' ' + styles.blackBox}>
               <div className={styles.boxNumber}>02</div>
-            </div>
+            </div> */}
             
           </div>
         </div>
@@ -99,14 +99,14 @@ const PremiumBoxesSection: React.FC = () => {
           <div className={styles.boxesWrapper}>
             
             {/* Left Box - Black with White Text */}
-            <div className={styles.premiumBox + ' ' + styles.blackBox}>
+            {/* <div className={styles.premiumBox + ' ' + styles.blackBox}>
               <div className={styles.boxNumber}>03</div>
-            </div>
+            </div> */}
             
             {/* Right Box - Red with Black Text */}
-            <div className={styles.premiumBox + ' ' + styles.redBox}>
+            {/* <div className={styles.premiumBox + ' ' + styles.redBox}>
               <div className={styles.boxNumber}>04</div>
-            </div>
+            </div> */}
             
           </div>
         </div>

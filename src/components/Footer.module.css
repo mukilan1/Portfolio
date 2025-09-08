@@ -1,0 +1,73 @@
+/* Footer Styles */
+.footer {
+  width: 100%;
+  background-color: #000000; /* Full black background */
+  color: #ffffff; /* White text */
+  padding: 120px 0; /* Even bigger padding */
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  max-width: 1400px; /* Wider container */
+  margin: 0 auto;
+  padding: 0 60px; /* More horizontal padding */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px; /* Larger gap */
+}
+
+.copyright {
+  font-size: 22px; /* Bigger font size */
+  font-weight: 400;
+  margin: 0;
+  color: #ffffff;
+}
+
+.links {
+  display: flex;
+  gap: 70px; /* Larger gap between links */
+}
+
+.link {
+  font-size: 22px; /* Bigger font size */
+  font-weight: 400;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 80px 0; /* Smaller on mobile but still big */
+  }
+  
+  .container {
+    padding: 0 30px;
+  }
+  
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .links {
+    gap: 40px;
+  }
+  
+  .copyright,
+  .link {
+    font-size: 18px; /* Smaller on mobile */
+  }
+}
