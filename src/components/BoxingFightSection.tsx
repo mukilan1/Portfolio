@@ -51,7 +51,7 @@ const BoxingFightSection: React.FC = () => {
       <div className={styles.contentContainer}>
         {/* Left side - Text content */}
         <div className={styles.textBlock}>
-          <h1 className={styles.mainHeading}>King of the ring fight</h1>
+          <h1 className={styles.mainHeading}><span>King of the ring</span><span>fight</span></h1>
           <a href="#" className={styles.viewCaseLink}>View Case</a>
         </div>
 

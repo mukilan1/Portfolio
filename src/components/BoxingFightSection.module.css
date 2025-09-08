@@ -82,6 +82,10 @@
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
 }
 
+.mainHeading span {
+  display: inline-block;
+}
+
 .viewCaseLink {
   font-size: 14px;
   font-weight: 400;
@@ -94,6 +98,37 @@
 .viewCaseLink:hover {
   color: #FFFFFF;
   text-decoration: underline;
+}
+
+/* Animation for heading parts */
+.boxingFightSection.animate .mainHeading span:first-child {
+  animation: slideInFromLeft 0.8s ease-out 0.3s both;
+}
+
+.boxingFightSection.animate .mainHeading span:last-child {
+  animation: slideInFromRight 0.8s ease-out 0.3s both;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Right side image container */
