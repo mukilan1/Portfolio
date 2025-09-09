@@ -1,24 +1,133 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Footer.module.css';
 
 const Footer: React.FC = () => {
+  const footerRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const currentRef = footerRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <footer className={styles.footer}>
+    <footer ref={footerRef} className={`${styles.footer} ${isVisible ? styles.footerVisible : styles.footerHidden}`}>
+      {/* Premium Top Border */}
+      <div className={`${styles.premiumBorder} ${isVisible ? styles.borderVisible : styles.borderHidden}`}>
+        <div className={styles.borderLine}></div>
+        <div className={styles.borderAccents}>
+          <div className={`${styles.borderDot} ${isVisible ? styles.dotVisible : styles.dotHidden}`}></div>
+          <div className={`${styles.borderDot} ${isVisible ? styles.dotVisible : styles.dotHidden}`}></div>
+          <div className={`${styles.borderDot} ${isVisible ? styles.dotVisible : styles.dotHidden}`}></div>
+        </div>
+      </div>
+
       <div className={styles.container}>
-        <div className={styles.content}>
-          <p className={styles.copyright}>
-            © 2025 Mukilan Portfolio. All rights reserved.
-          </p>
-          <div className={styles.links}>
-            <a href="#home" className={styles.link}>Home</a>
-            <a href="#about" className={styles.link}>About</a>
-            <a href="#projects" className={styles.link}>Projects</a>
-            <a href="#contact" className={styles.link}>Contact</a>
+        {/* Main Content */}
+        <div className={styles.mainContent}>
+          <div className={styles.brandSection}>
+            <h2 className={`${styles.brandTitle} ${isVisible ? styles.brandVisible : styles.brandHidden} ${isVisible ? styles.delay02 : ''}`}>
+              MUKILAN
+              <div className={styles.titleGlow}></div>
+            </h2>
+            <div className={styles.brandSubtitle}>Portfolio</div>
+            {/* Luxury Ornament */}
+            <div className={styles.luxuryOrnament}>
+              <div className={styles.ornamentLine}></div>
+              <div className={styles.ornamentDiamond}></div>
+              <div className={styles.ornamentLine}></div>
+            </div>
+          </div>
+          
+          <div className={`${styles.contactSection} ${isVisible ? styles.contactVisible : styles.contactHidden} ${isVisible ? styles.delay04 : ''}`}>
+            <div className={styles.contactItem}>
+              <span className={styles.contactLabel}>Email</span>
+              <a href="mailto:hello@mukilan.dev" className={styles.contactLink}>
+                hello@mukilan.dev
+              </a>
+            </div>
+            <div className={styles.contactItem}>
+              <span className={styles.contactLabel}>Location</span>
+              <span className={styles.contactText}>Chennai, India</span>
+            </div>
+            {/* Availability Status */}
+            <div className={styles.availabilityStatus}>
+              <div className={styles.statusIndicator}></div>
+              <span className={styles.statusText}>Available for projects</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Premium Divider */}
+        <div className={styles.divider}>
+          <div className={styles.dividerSection}></div>
+          <div className={styles.dividerCenter}>
+            <div className={styles.centerOrnament}></div>
+          </div>
+          <div className={styles.dividerSection}></div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className={styles.bottomSection}>
+          <div className={`${styles.copyright} ${isVisible ? styles.copyrightVisible : styles.copyrightHidden} ${isVisible ? styles.delay06 : ''}`}>
+            <span>© 2025 Mukilan. All rights reserved.</span>
+          </div>
+          
+          <div className={`${styles.socialLinks} ${isVisible ? styles.socialVisible : styles.socialHidden} ${isVisible ? styles.delay08 : ''}`}>
+            <a href="#" className={styles.socialLink}>
+              <span className={styles.linkText}>LinkedIn</span>
+              <div className={styles.linkHoverEffect}></div>
+            </a>
+            <a href="#" className={styles.socialLink}>
+              <span className={styles.linkText}>GitHub</span>
+              <div className={styles.linkHoverEffect}></div>
+            </a>
+            <a href="#" className={styles.socialLink}>
+              <span className={styles.linkText}>Twitter</span>
+              <div className={styles.linkHoverEffect}></div>
+            </a>
+            <a href="#" className={styles.socialLink}>
+              <span className={styles.linkText}>Behance</span>
+              <div className={styles.linkHoverEffect}></div>
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Luxury Background Elements */}
+      <div className={styles.backgroundPattern}>
+        <div className={styles.patternGrid}></div>
+        <div className={styles.floatingOrbs}>
+          <div className={styles.orb}></div>
+          <div className={styles.orb}></div>
+          <div className={styles.orb}></div>
+        </div>
+      </div>
+
+      {/* Shimmer Effect */}
+      <div className={styles.shimmerEffect}></div>
     </footer>
   );
 };
