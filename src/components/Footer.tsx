@@ -6,6 +6,12 @@ import styles from './Footer.module.css';
 const Footer: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isVisibleRef = useRef(isVisible);
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    isVisibleRef.current = isVisible;
+  }, [isVisible]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,9 +23,9 @@ const Footer: React.FC = () => {
       const scrollPercent = scrollY / (documentHeight - windowHeight);
       
       // Show footer only when 95% scrolled (very close to end), hide when less than 97%
-      if (scrollPercent >= 0.95 && !isVisible) {
+      if (scrollPercent >= 0.95 && !isVisibleRef.current) {
         setIsVisible(true);
-      } else if (scrollPercent < 0.97 && isVisible) {
+      } else if (scrollPercent < 0.97 && isVisibleRef.current) {
         setIsVisible(false);
       }
     };
@@ -32,7 +38,7 @@ const Footer: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <footer ref={footerRef} className={`${styles.footer} ${isVisible ? styles.animate : ''}`}>

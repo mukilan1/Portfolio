@@ -6,6 +6,7 @@ import styles from './HeroSection.module.css';
 import { HeroSectionProps } from './HeroSection.types';
 import { heroData } from './HeroSection.data';
 import { GradientText } from './ui/gradient-text';
+import InfiniteHero from './ui/infinite-hero';
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   name = heroData.personalInfo.name,
@@ -58,6 +59,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }, []);
   return (
     <section className={styles.heroContainer}>
+      {/* Infinite Hero Background */}
+      <div className={styles.infiniteHeroBackground}>
+        <InfiniteHero />
+      </div>
+
       {/* Header Navigation */}
       <header className={styles.heroHeader}>
         <div className={styles.headerInfo}>
