@@ -2,14 +2,17 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import * as THREE from "three";
+// import * as THREE from "three";
 import styles from './BoxingFightSection.module.css';
 
+/*
 type UniformType = {
   time: { type: string; value: number };
   resolution: { type: string; value: THREE.Vector2 };
 };
+*/
 
+/*
 export function ShaderAnimation({ isVisible }: { isVisible: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<{
@@ -154,10 +157,19 @@ export function ShaderAnimation({ isVisible }: { isVisible: boolean }) {
     />
   )
 }
+*/
 
 const BoxingFightSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('down');
+  const [hasCompletedAnimation, setHasCompletedAnimation] = useState(false);
+  const prevScrollY = useRef(0);
+
+  // Initialize scroll position on client side
+  useEffect(() => {
+    prevScrollY.current = window.scrollY;
+  }, []);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -167,9 +179,23 @@ const BoxingFightSection: React.FC = () => {
         requestAnimationFrame(() => {
           entries.forEach((entry) => {
             const isInView = entry.isIntersecting && entry.intersectionRatio > 0.2; // Reduced threshold
-            if (isInView !== isVisible) { // Only update if state actually changed
-              setIsVisible(isInView);
+            const currentScrollY = window.scrollY;
+            const direction = currentScrollY > prevScrollY.current ? 'down' : 'up';
+            
+            if (isInView && direction === 'down' && !hasCompletedAnimation) {
+              setIsVisible(true);
+              setScrollDirection('down');
+              // Mark animation as completed after first down scroll
+              setTimeout(() => setHasCompletedAnimation(true), 1200); // Match CSS transition duration
+            } else if (direction === 'up') {
+              setScrollDirection('up');
+              if (!hasCompletedAnimation) {
+                setIsVisible(false);
+              }
+              // Don't change isVisible if animation is completed
             }
+            
+            prevScrollY.current = currentScrollY;
           });
         });
       },
@@ -188,15 +214,19 @@ const BoxingFightSection: React.FC = () => {
         observer.unobserve(currentRef);
       }
     };
-  }, [isVisible]); // Include isVisible to prevent unnecessary re-renders // Empty dependency array to prevent re-creation
+  }, [hasCompletedAnimation]); // Include hasCompletedAnimation in dependencies
 
   return (
     <section 
       ref={sectionRef} 
-      className={`${styles.boxingFightSection} ${styles.fullHeight} ${isVisible ? styles.animate : ''}`}
+      className={`${styles.boxingFightSection} ${styles.fullHeight} ${
+        hasCompletedAnimation ? styles.animate : 
+        (isVisible && scrollDirection === 'down') ? styles.animate : 
+        (scrollDirection === 'up' && !hasCompletedAnimation) ? styles.reverse : ''
+      }`}
     >
       {/* Background overlay number */}
-      <ShaderAnimation isVisible={isVisible} />
+      {/* <ShaderAnimation isVisible={isVisible} /> */}
       
       {/* Main content container */}
       <div className={styles.contentContainer}>

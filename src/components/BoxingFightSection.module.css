@@ -26,6 +26,12 @@
   backface-visibility: hidden; /* Performance optimization */
 }
 
+/* Reverse animation - smooth transition back to initial state */
+.boxingFightSection.reverse {
+  transform: scale(0.8) rotate(-5deg) translateZ(0); /* Back to initial state */
+  backface-visibility: hidden; /* Performance optimization */
+}
+
 /* Empty white section above Boxing Fight Section */
 .emptyWhiteSection {
   position: relative;
