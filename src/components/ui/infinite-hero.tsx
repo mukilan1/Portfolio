@@ -176,7 +176,7 @@ function ShaderBackground({
         f = float(nbStep) / float(STEP);
 
         f *= .9;
-        vec3 col = vec3(f);
+        vec3 col = vec3(f) * vec3(0.7, 0.8, 1.0);
 
         fragColor = vec4(col,1.0);
     }
