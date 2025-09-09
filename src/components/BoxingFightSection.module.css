@@ -205,6 +205,20 @@
   z-index: 1;
 }
 
+/* Shader background */
+.shaderBackground {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Full height for section */
+.fullHeight {
+  height: 100vh !important;
+}
+
 /* Responsive design */
 @media (max-width: 1200px) {
   .backgroundNumber {
