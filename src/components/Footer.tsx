@@ -16,10 +16,10 @@ const Footer: React.FC = () => {
       // Calculate how close we are to the bottom
       const scrollPercent = scrollY / (documentHeight - windowHeight);
       
-      // Show footer only when 95% scrolled (very close to end), hide when less than 90%
+      // Show footer only when 95% scrolled (very close to end), hide when less than 97%
       if (scrollPercent >= 0.95 && !isVisible) {
         setIsVisible(true);
-      } else if (scrollPercent < 0.9 && isVisible) {
+      } else if (scrollPercent < 0.97 && isVisible) {
         setIsVisible(false);
       }
     };
