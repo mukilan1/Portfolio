@@ -29,3 +29,6 @@ export { default as EmptySection } from './EmptySection';
 
 // XFLEXO Section Component Exports
 export { default as XFLEXOSection } from './XFLEXOSection';
+
+// Footer Component Exports
+export { default as Footer } from './Footer';

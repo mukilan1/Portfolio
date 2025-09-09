@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+.footer-spacer {
+  height: 100vh;
+  background: transparent;
+}
+
 :root {
   --background: #1a1a2e;
   --foreground: #171717;

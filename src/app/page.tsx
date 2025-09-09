@@ -1,8 +1,8 @@
-import { HeroSection, ScrollingSection, FashionistaSection, BlackSection, SoulSection, AnimeCatalogSection, PremiumBoxesSection, BoxingFightSection, XFLEXOSection } from '../components';
+import { HeroSection, ScrollingSection, FashionistaSection, BlackSection, SoulSection, AnimeCatalogSection, PremiumBoxesSection, BoxingFightSection, XFLEXOSection, Footer } from '../components';
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HeroSection />
       <ScrollingSection />
       <FashionistaSection />
@@ -12,6 +12,8 @@ export default function Home() {
       <PremiumBoxesSection />
       <BoxingFightSection />
       <XFLEXOSection />
-    </div>
+      <div className="footer-spacer" />
+      <Footer />
+    </>
   );
 }

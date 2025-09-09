@@ -8,39 +8,41 @@ const Footer: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const currentRef = footerRef.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      }
-    );
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Calculate how close we are to the bottom
+      const scrollPercent = scrollY / (documentHeight - windowHeight);
+      
+      // Show footer only when 95% scrolled (very close to end), hide when less than 90%
+      if (scrollPercent >= 0.95 && !isVisible) {
+        setIsVisible(true);
+      } else if (scrollPercent < 0.9 && isVisible) {
+        setIsVisible(false);
       }
     };
-  }, []);
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isVisible]);
 
   return (
-    <footer ref={footerRef} className={`${styles.footer} ${isVisible ? styles.footerVisible : styles.footerHidden}`}>
+    <footer ref={footerRef} className={`${styles.footer} ${isVisible ? styles.animate : ''}`}>
       {/* Premium Top Border */}
-      <div className={`${styles.premiumBorder} ${isVisible ? styles.borderVisible : styles.borderHidden}`}>
+      <div className={styles.premiumBorder}>
         <div className={styles.borderLine}></div>
         <div className={styles.borderAccents}>
-          <div className={`${styles.borderDot} ${isVisible ? styles.dotVisible : styles.dotHidden}`}></div>
-          <div className={`${styles.borderDot} ${isVisible ? styles.dotVisible : styles.dotHidden}`}></div>
-          <div className={`${styles.borderDot} ${isVisible ? styles.dotVisible : styles.dotHidden}`}></div>
+          <div className={styles.borderDot}></div>
+          <div className={styles.borderDot}></div>
+          <div className={styles.borderDot}></div>
         </div>
       </div>
 
@@ -48,7 +50,7 @@ const Footer: React.FC = () => {
         {/* Main Content */}
         <div className={styles.mainContent}>
           <div className={styles.brandSection}>
-            <h2 className={`${styles.brandTitle} ${isVisible ? styles.brandVisible : styles.brandHidden} ${isVisible ? styles.delay02 : ''}`}>
+            <h2 className={styles.brandTitle}>
               MUKILAN
               <div className={styles.titleGlow}></div>
             </h2>
@@ -61,7 +63,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          <div className={`${styles.contactSection} ${isVisible ? styles.contactVisible : styles.contactHidden} ${isVisible ? styles.delay04 : ''}`}>
+          <div className={styles.contactSection}>
             <div className={styles.contactItem}>
               <span className={styles.contactLabel}>Email</span>
               <a href="mailto:hello@mukilan.dev" className={styles.contactLink}>
@@ -91,11 +93,11 @@ const Footer: React.FC = () => {
 
         {/* Bottom Section */}
         <div className={styles.bottomSection}>
-          <div className={`${styles.copyright} ${isVisible ? styles.copyrightVisible : styles.copyrightHidden} ${isVisible ? styles.delay06 : ''}`}>
+          <div className={styles.copyright}>
             <span>© 2025 Mukilan. All rights reserved.</span>
           </div>
           
-          <div className={`${styles.socialLinks} ${isVisible ? styles.socialVisible : styles.socialHidden} ${isVisible ? styles.delay08 : ''}`}>
+          <div className={styles.socialLinks}>
             <a href="#" className={styles.socialLink}>
               <span className={styles.linkText}>LinkedIn</span>
               <div className={styles.linkHoverEffect}></div>
