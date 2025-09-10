@@ -3,9 +3,9 @@ import { HeroData } from './HeroSection.types';
 export const heroData: HeroData = {
   personalInfo: {
     name: 'Mukilan',
-    jobTitle: 'Currently front end engineer at Wise',
-    location: 'Based in London\nUnited Kingdom',
-    company: 'Wise'
+    jobTitle: 'A Fullstack developer with rapid development skill',
+    location: 'Based in India\nTamil Nadu',
+    company: 'Scable.in'
   },
   content: {
     title: ['SOFTWARE', 'DEVELOPER'],
