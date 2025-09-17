@@ -610,7 +610,7 @@ const BoxingFightSection: React.FC = () => {
       {/* Waves Background */}
       <Waves 
         lineColor="rgba(255, 255, 255, 0.3)"
-        backgroundColor="transparent"
+        backgroundColor="black"
         waveSpeedX={0.0125}
         waveSpeedY={0.005}
         waveAmpX={32}
