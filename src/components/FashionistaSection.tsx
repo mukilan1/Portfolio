@@ -12,7 +12,6 @@ const FashionistaSection: React.FC = () => {
 
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const sectionTop = sectionRect.top;
-      const sectionBottom = sectionRect.bottom;
       const viewportHeight = window.innerHeight;
       const sectionHeight = sectionRect.height;
 
@@ -46,26 +45,26 @@ const FashionistaSection: React.FC = () => {
         {/* Left Content */}
         <div className={styles.leftContent}>
           <h2 className={styles.mainHeading}>
-            THE FASHIONISTA&apos;S DIARY: LET&apos;S START
+            FULL-STACK DEVELOPER & AI BUILDER
           </h2>
           
           <p className={styles.subheading}>
-            TRUSTED BY: WOCOMMENDS
+            PRODUCT-FOCUSED • SCALABLE • UX-DRIVEN
           </p>
           
           <div className={styles.bulletSection}>
             <h3 className={styles.bulletTitle}>
-              CHIC AND SUSTAINABLE STYLE
+              SUMMARY HIGHLIGHTS
             </h3>
             <ul className={styles.bulletList}>
-              <li>A budgeting fashion investment</li>
-              <li>Prioritizing creative reuse of pieces</li>
-              <li>The influence of sustainable influencers</li>
+              <li>Flutter + Django REST: production apps across Android, iOS, Web</li>
+              <li>AI agents with Ollama; automation and real-time solutions</li>
+              <li>Architected systems with strong UI/UX and reliability</li>
             </ul>
           </div>
           
           <button className={styles.shopButton}>
-            SHOP NOW IN FASHION DIARY
+            VIEW WORK & CONTACT
           </button>
         </div>
         
@@ -73,7 +72,7 @@ const FashionistaSection: React.FC = () => {
         <div className={styles.rightContent}>
           <div className={styles.yearDisplay}>
             <span className={styles.yearTop}>20</span>
-            <span className={styles.yearBottom}>23</span>
+            <span className={styles.yearBottom}>25</span>
           </div>
         </div>
       </div>

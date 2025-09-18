@@ -629,8 +629,8 @@ const BoxingFightSection: React.FC = () => {
       <div className={styles.contentContainer}>
         {/* Left side - Text content */}
         <div className={styles.textBlock}>
-          <h1 className={styles.mainHeading}><span>King of the ring</span><span>fight</span></h1>
-          <a href="#" className={styles.viewCaseLink}>View Case</a>
+          <h1 className={styles.mainHeading}><span>AI + Full‑Stack</span><span>Case Study</span></h1>
+          <a href="#work" className={styles.viewCaseLink}>View Projects</a>
         </div>
 
         {/* Right side - Image */}
@@ -655,9 +655,9 @@ const BoxingFightSection: React.FC = () => {
 
       {/* Bottom right social links */}
       <div className={styles.socialLinks}>
-        <a href="#" className={styles.socialLink}>facebook</a>
-        <a href="#" className={styles.socialLink}>dribbble</a>
-        <a href="#" className={styles.socialLink}>instagram</a>
+        <a href="https://www.linkedin.com/in/mukilan-ss" className={styles.socialLink}>linkedin</a>
+        <a href="https://github.com/mukilan1" className={styles.socialLink}>github</a>
+        <a href="https://www.instagram.com/mukilanoxto" className={styles.socialLink}>instagram</a>
       </div>
 
       {/* Diagonal shadow overlay */}

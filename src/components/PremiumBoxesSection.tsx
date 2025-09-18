@@ -80,15 +80,31 @@ const PremiumBoxesSection: React.FC = () => {
         <div className={styles.container}>
           <div className={styles.boxesWrapper}>
             
-            {/* Left Box - Red with Black Text */}
-            {/* <div className={styles.premiumBox + ' ' + styles.redBox}>
+            {/* Left Box - Experience */}
+            <div className={styles.premiumBox + ' ' + styles.redBox}>
               <div className={styles.boxNumber}>01</div>
-            </div> */}
+              <div className={`${styles.contentOverlay} ${styles.contentDark}`}>
+                <h3 className={styles.boxHeading}>Experience</h3>
+                <ul className={styles.boxList}>
+                  <li>Founder, Scable India Pvt Ltd (Dec 2023 – Apr 2025)</li>
+                  <li>Full-Stack Dev, Creative i (Jun 2025 – Jul 2025)</li>
+                </ul>
+                <div className={styles.boxMeta}>Projects: Turftime, Billinall, ECMA Textile Platform</div>
+              </div>
+            </div>
             
-            {/* Right Box - Black with White Text */}
-            {/* <div className={styles.premiumBox + ' ' + styles.blackBox}>
+            {/* Right Box - Projects Snapshot */}
+            <div className={styles.premiumBox + ' ' + styles.blackBox}>
               <div className={styles.boxNumber}>02</div>
-            </div> */}
+              <div className={`${styles.contentOverlay} ${styles.contentLight}`}>
+                <h3 className={styles.boxHeading}>Featured AI & Automation</h3>
+                <ul className={styles.boxList}>
+                  <li>Fashion Matching Agent (Mar–Apr 2025)</li>
+                  <li>DisasterLink (Sep–Oct 2024)</li>
+                  <li>Dark Pattern Buster (Feb–May 2024)</li>
+                </ul>
+              </div>
+            </div>
             
           </div>
         </div>
@@ -98,15 +114,30 @@ const PremiumBoxesSection: React.FC = () => {
         <div className={styles.container}>
           <div className={styles.boxesWrapper}>
             
-            {/* Left Box - Black with White Text */}
-            {/* <div className={styles.premiumBox + ' ' + styles.blackBox}>
+            {/* Left Box - Education */}
+            <div className={styles.premiumBox + ' ' + styles.blackBox}>
               <div className={styles.boxNumber}>03</div>
-            </div> */}
+              <div className={`${styles.contentOverlay} ${styles.contentLight}`}>
+                <h3 className={styles.boxHeading}>Education</h3>
+                <div className={styles.boxMeta}>B.E. Computer Science, VCET (Nov 2022 – May 2026)</div>
+                <ul className={styles.boxList}>
+                  <li>Grand Master (President) – Dept. Club; built club website</li>
+                  <li>Student Coordinator – Entrepreneur Development Cell</li>
+                  <li>VCET Hackelite2k25 website (solo, 15 hours)</li>
+                </ul>
+              </div>
+            </div>
             
-            {/* Right Box - Red with Black Text */}
-            {/* <div className={styles.premiumBox + ' ' + styles.redBox}>
+            {/* Right Box - Skills */}
+            <div className={styles.premiumBox + ' ' + styles.redBox}>
               <div className={styles.boxNumber}>04</div>
-            </div> */}
+              <div className={`${styles.contentOverlay} ${styles.contentDark}`}>
+                <h3 className={styles.boxHeading}>Skills</h3>
+                <div className={styles.boxMeta}>Flutter • DRF • Python • Dart • Docker • MySQL</div>
+                <div className={`${styles.boxMeta} ${styles.mt6}`}>AI: Ollama • RAG • Agents • Prompt Engineering</div>
+                <div className={`${styles.boxMeta} ${styles.mt6}`}>Tools: Git/GitHub • Figma • Canva • Illustrator</div>
+              </div>
+            </div>
             
           </div>
         </div>

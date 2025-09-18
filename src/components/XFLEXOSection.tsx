@@ -71,14 +71,14 @@ const XFLEXOSection: React.FC = () => {
   }, [isMounted]);
 
   return (
-    <section ref={sectionRef} className={styles.xflexoSection} suppressHydrationWarning>
+  <section ref={sectionRef} id="about" className={styles.xflexoSection} suppressHydrationWarning>
       <div ref={gridRef} className={styles.gridContainer}>
         {/* Top Left Panel - Tall and Narrow */}
         <div className={`${styles.panel} ${styles.topLeftPanel}`}>
           <div className={styles.panelContent}>
-            <h3 className={styles.panelTitle}>INNOVATIVE</h3>
+            <h3 className={styles.panelTitle}>ABOUT</h3>
             <p className={styles.panelText}>
-              Revolutionary design thinking that pushes boundaries and creates tomorrow&apos;s solutions today.
+              Full‑stack developer crafting scalable products with Flutter + DRF and practical AI agents using Ollama.
             </p>
           </div>
         </div>
@@ -87,13 +87,13 @@ const XFLEXOSection: React.FC = () => {
         <div className={`${styles.panel} ${styles.topRightPanel}`}>
           <div className={styles.panelContent}>
             <div className={styles.brandIdentity}>
-              <div className={styles.logoLarge}>XFLEXO</div>
+              <div className={styles.logoLarge}>MUKILAN</div>
             </div>
             <h1 className={styles.mainHeadline}>
-              DESIGN BEYOND LIMITS
+              BUILD WITH CLARITY
             </h1>
             <p className={styles.mainDescription}>
-              Where creativity meets technology to forge extraordinary experiences that define the future of digital interaction.
+              Product‑first engineering: clean architecture, solid UX, and reliable delivery across mobile, web, and desktop.
             </p>
           </div>
           <div className={styles.backgroundPattern}></div>
@@ -102,9 +102,9 @@ const XFLEXOSection: React.FC = () => {
         {/* Center Panel */}
         <div className={`${styles.panel} ${styles.centerPanel}`}>
           <div className={styles.panelContent}>
-            <h3 className={styles.panelTitle}>CREATIVE</h3>
+            <h3 className={styles.panelTitle}>HIGHLIGHTS</h3>
             <p className={styles.panelText}>
-              Unleashing boundless imagination through cutting-edge methodologies.
+              Turftime, Billinall, ECMA Textile B2B, DisasterLink, Fashion Matching Agent.
             </p>
           </div>
         </div>
@@ -113,10 +113,10 @@ const XFLEXOSection: React.FC = () => {
         <div className={`${styles.panel} ${styles.bottomLeftPanel}`}>
           <div className={styles.panelContent}>
             <h2 className={styles.secondaryHeadline}>
-              NEXT GENERATION SOLUTIONS
+              EDUCATION & LEADERSHIP
             </h2>
             <p className={styles.secondaryDescription}>
-              Pioneering the evolution of digital craftsmanship through innovative approaches and visionary execution.
+              B.E. CSE @ VCET. Club Grand Master, EDC Coordinator, Hackelite2k25 website (solo in 15 hrs).
             </p>
           </div>
           <div className={styles.wavePattern}></div>
@@ -125,9 +125,9 @@ const XFLEXOSection: React.FC = () => {
         {/* Bottom Right Panel */}
         <div className={`${styles.panel} ${styles.bottomRightPanel}`}>
           <div className={styles.panelContent}>
-            <h3 className={styles.panelTitle}>FUTURE</h3>
+            <h3 className={styles.panelTitle}>FOCUS</h3>
             <p className={styles.panelText}>
-              Building tomorrow&apos;s digital landscape with today&apos;s vision and expertise.
+              AI agents, automation, cross‑platform apps, and maintainable systems.
             </p>
           </div>
         </div>

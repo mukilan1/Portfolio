@@ -5,7 +5,7 @@ import styles from './AnimeCatalogSection.module.css';
 
 const AnimeCatalogSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,12 +48,12 @@ const AnimeCatalogSection: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.cardsGrid}>
           
-          {/* 🔴 Card 1 – "Attack on Titan" (Far Left) */}
+          {/* Card 1 – Turftime */}
           <div className={`${styles.animeCard} ${styles.card1}`}>
             {/* Image Block (Top Section) */}
             <div className={`${styles.imageBlock} ${styles.attackOnTitanImage}`}>
               <div className={styles.genreTag}>
-                <span className={styles.genreText}>Action</span>
+                <span className={styles.genreText}>Product</span>
               </div>
               {/* Eren Jaeger silhouette with dual blades */}
               <div className={styles.characterSilhouette}>
@@ -68,21 +68,20 @@ const AnimeCatalogSection: React.FC = () => {
             
             {/* Title + Description (Bottom Text Block) */}
             <div className={styles.textBlock}>
-              <h3 className={styles.cardTitle}>Attack on Titan</h3>
+              <h3 className={styles.cardTitle}>Turftime</h3>
               <p className={styles.cardDescription}>
-                In a world where humanity lives in fear of giant
-                humanoid Titans, a young boy named Eren Jaeger
-                becomes determined to fight back an…
+                Turf booking platform for owners and players. Built with Flutter + DRF,
+                featuring schedules, payments, and admin tools.
               </p>
             </div>
           </div>
 
-          {/* ⚫ Card 2 – "Demon Slayer" */}
+          {/* Card 2 – Billinall */}
           <div className={`${styles.animeCard} ${styles.card2}`}>
             {/* Image Block */}
             <div className={`${styles.imageBlock} ${styles.demonSlayerImage}`}>
               <div className={styles.genreTag}>
-                <span className={styles.genreText}>Fantasy</span>
+                <span className={styles.genreText}>Desktop</span>
               </div>
               {/* Giant red sun with black brushstroke dragon */}
               <div className={styles.redSunDragon}>
@@ -95,21 +94,20 @@ const AnimeCatalogSection: React.FC = () => {
             </div>
             
             <div className={styles.textBlock}>
-              <h3 className={styles.cardTitle}>Demon Slayer</h3>
+              <h3 className={styles.cardTitle}>Billinall</h3>
               <p className={styles.cardDescription}>
-                In Taisho-era Japan, a young boy named
-                Tanjiro Kamado sets out on a journey to
-                become a demon slayer after his family is mu…
+                Professional billing software with invoices, quotations, credit/debit notes
+                and printer integration. Deployed on Windows and Android.
               </p>
             </div>
           </div>
 
-          {/* 🟡 Card 3 – "Cowboy Bebop" */}
+          {/* Card 3 – ECMA Textile B2B */}
           <div className={`${styles.animeCard} ${styles.card3}`}>
             {/* Image Block */}
             <div className={`${styles.imageBlock} ${styles.cowboyBebopImage}`}>
               <div className={styles.genreTag}>
-                <span className={styles.genreText}>Sci-Fi</span>
+                <span className={styles.genreText}>B2B</span>
               </div>
               {/* Spike Spiegel and Faye Valentine */}
               <div className={styles.spikeSilhouette}></div>
@@ -118,21 +116,20 @@ const AnimeCatalogSection: React.FC = () => {
             </div>
             
             <div className={styles.textBlock}>
-              <h3 className={styles.cardTitle}>Cowboy Bebop</h3>
+              <h3 className={styles.cardTitle}>ECMA Textile Platform</h3>
               <p className={styles.cardDescription}>
-                In a future where humanity has colonized the
-                solar system, a ragtag crew of bounty hunters
-                chase down the solar system&apos;s most dangerou…
+                B2B platform for textile professionals in Erode district with Flutter + DRF.
+                Multi-platform apps and an admin panel.
               </p>
             </div>
           </div>
 
-          {/* 🟠 Card 4 – "One Piece" (Far Right) */}
+          {/* Card 4 – Fashion Matching AI */}
           <div className={`${styles.animeCard} ${styles.card4}`}>
             {/* Image Block */}
             <div className={`${styles.imageBlock} ${styles.onePieceImage}`}>
               <div className={styles.genreTag}>
-                <span className={styles.genreText}>Adventure</span>
+                <span className={styles.genreText}>AI</span>
               </div>
               {/* Luffy silhouette with pirate ships */}
               <div className={styles.luffySilhouette}></div>
@@ -144,11 +141,10 @@ const AnimeCatalogSection: React.FC = () => {
             </div>
             
             <div className={styles.textBlock}>
-              <h3 className={styles.cardTitle}>One Piece</h3>
+              <h3 className={styles.cardTitle}>Fashion Matching Agent</h3>
               <p className={styles.cardDescription}>
-                In a world filled with pirates, marines, and dev-
-                il fruit users, a young boy named Monkey D.
-                Luffy sets out on a journey to become the Kin…
+                Local image analysis and pose detection with Ollama-backed LLM for
+                outfit suggestions and text-to-image search.
               </p>
             </div>
           </div>

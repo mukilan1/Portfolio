@@ -12,7 +12,6 @@ const BlackSection: React.FC = () => {
 
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const sectionTop = sectionRect.top;
-      const sectionBottom = sectionRect.bottom;
       const viewportHeight = window.innerHeight;
       const sectionHeight = sectionRect.height;
 
@@ -46,26 +45,26 @@ const BlackSection: React.FC = () => {
         {/* Left Content */}
         <div className={styles.leftContent}>
           <h2 className={styles.mainHeading}>
-            THE FASHIONISTA&apos;S DIARY: LET&apos;S START
+            SKILLS & TOOLING
           </h2>
           
           <p className={styles.subheading}>
-            TRUSTED BY: WOCOMMENDS
+            BUILD • AUTOMATE • DEPLOY
           </p>
           
           <div className={styles.bulletSection}>
             <h3 className={styles.bulletTitle}>
-              CHIC AND SUSTAINABLE STYLE
+              CORE STACK
             </h3>
             <ul className={styles.bulletList}>
-              <li>A budgeting fashion investment</li>
-              <li>Prioritizing creative reuse of pieces</li>
-              <li>The influence of sustainable influencers</li>
+              <li>Flutter, Django REST Framework, Python, Dart</li>
+              <li>MySQL, Docker, Linux, Git/GitHub, CI basics</li>
+              <li>AI: Ollama, RAG, Prompt Engineering, Agents</li>
             </ul>
           </div>
           
           <button className={styles.shopButton}>
-            SHOP NOW IN FASHION DIARY
+            DOWNLOAD RESUME
           </button>
         </div>
         
@@ -73,7 +72,7 @@ const BlackSection: React.FC = () => {
         <div className={styles.rightContent}>
           <div className={styles.yearDisplay}>
             <span className={styles.yearTop}>20</span>
-            <span className={styles.yearBottom}>23</span>
+            <span className={styles.yearBottom}>26</span>
           </div>
         </div>
       </div>

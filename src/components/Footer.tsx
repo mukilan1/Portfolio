@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className={`${styles.footer} ${isVisible ? styles.animate : ''}`}>
+    <footer ref={footerRef} id="contact" className={`${styles.footer} ${isVisible ? styles.animate : ''}`}>
       {/* Premium Top Border */}
       <div className={styles.premiumBorder}>
         <div className={styles.borderLine}></div>
@@ -72,13 +72,13 @@ const Footer: React.FC = () => {
           <div className={styles.contactSection}>
             <div className={styles.contactItem}>
               <span className={styles.contactLabel}>Email</span>
-              <a href="mailto:hello@mukilan.dev" className={styles.contactLink}>
-                hello@mukilan.dev
+              <a href="mailto:mukilanmailspace@gmail.com" className={styles.contactLink}>
+                mukilanmailspace@gmail.com
               </a>
             </div>
             <div className={styles.contactItem}>
               <span className={styles.contactLabel}>Location</span>
-              <span className={styles.contactText}>Chennai, India</span>
+              <span className={styles.contactText}>Erode, Tamil Nadu, India</span>
             </div>
             {/* Availability Status */}
             <div className={styles.availabilityStatus}>
@@ -104,20 +104,20 @@ const Footer: React.FC = () => {
           </div>
           
           <div className={styles.socialLinks}>
-            <a href="#" className={styles.socialLink}>
+            <a href="https://www.linkedin.com/in/mukilan-ss" className={styles.socialLink}>
               <span className={styles.linkText}>LinkedIn</span>
               <div className={styles.linkHoverEffect}></div>
             </a>
-            <a href="#" className={styles.socialLink}>
+            <a href="https://github.com/mukilan1" className={styles.socialLink}>
               <span className={styles.linkText}>GitHub</span>
               <div className={styles.linkHoverEffect}></div>
             </a>
-            <a href="#" className={styles.socialLink}>
-              <span className={styles.linkText}>Twitter</span>
+            <a href="https://www.instagram.com/mukilanoxto" className={styles.socialLink}>
+              <span className={styles.linkText}>Instagram</span>
               <div className={styles.linkHoverEffect}></div>
             </a>
-            <a href="#" className={styles.socialLink}>
-              <span className={styles.linkText}>Behance</span>
+            <a href="https://www.mukilanss.me" className={styles.socialLink}>
+              <span className={styles.linkText}>Website</span>
               <div className={styles.linkHoverEffect}></div>
             </a>
           </div>

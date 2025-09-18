@@ -39,16 +39,16 @@ const ScrollingSection: React.FC = () => {
   }, []);
 
   const images = [
-    { src: '/placeholder1.jpg', alt: 'Project 1' },
-    { src: '/placeholder2.jpg', alt: 'Project 2' },
-    { src: '/placeholder3.jpg', alt: 'Project 3' },
-    { src: '/placeholder4.jpg', alt: 'Project 4' },
-    { src: '/placeholder5.jpg', alt: 'Project 5' },
-    { src: '/placeholder6.jpg', alt: 'Project 6' },
+    { src: '/placeholder1.jpg', alt: 'Turftime' },
+    { src: '/placeholder2.jpg', alt: 'Billinall' },
+    { src: '/placeholder3.jpg', alt: 'ECMA Textile B2B' },
+    { src: '/placeholder4.jpg', alt: 'Fashion Match AI' },
+    { src: '/placeholder5.jpg', alt: 'DisasterLink' },
+    { src: '/placeholder6.jpg', alt: 'Dark Pattern Buster' },
   ];
 
   return (
-    <section ref={sectionRef} className={styles.scrollingSection}>
+  <section ref={sectionRef} id="work" className={styles.scrollingSection}>
       <div className={styles.centeredText}>
         <h2 className={styles.mainTitle}>
           <span className={styles.titleLine}>CREATIVE</span>

@@ -1,8 +1,7 @@
 /* Premium Boxes Section */
 .premiumBoxesSection {
-  width: 100%;.premiumBox:hover {
-  transform: translateX(0);
-}-height: 80vh;
+  width: 100%;
+  height: 80vh;
   background: #f8f9fa;
   padding: 0;
   margin: 0;
@@ -80,6 +79,28 @@
   background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%);
   border: 2px solid #374151;
 }
+
+/* Content overlay helpers */
+.contentOverlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+}
+.contentDark { color: #000; }
+.contentLight { color: #fff; }
+.boxHeading {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+}
+.boxList {
+  margin-top: 8px;
+  padding-left: 18px;
+  line-height: 1.5;
+}
+.boxMeta { margin-top: 8px; font-size: 14px; }
+.mt6 { margin-top: 6px; }
 
 /* Box Numbers */
 .boxNumber {
