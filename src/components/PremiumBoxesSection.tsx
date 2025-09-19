@@ -2,6 +2,9 @@
 
 import React, { useRef, useEffect, useCallback } from 'react';
 import styles from './PremiumBoxesSection.module.css';
+import { ShaderAnimation } from './ShaderAnimation';
+import { SparklesCore } from './SparklesCore';
+import ShaderAnimationBox4 from './ShaderAnimationBox4';
 
 // WebGL Program interface with uniforms
 interface WebGLProgramWithUniforms {
@@ -497,6 +500,7 @@ const PremiumBoxesSection: React.FC = () => {
             
             {/* Right Box - Projects Snapshot */}
             <div className={styles.premiumBox + ' ' + styles.blackBox}>
+              <ShaderAnimation />
               <div className={styles.boxNumber}>02</div>
               <div className={`${styles.contentOverlay} ${styles.contentLight}`}>
                 <h3 className={styles.boxHeading}>Featured AI & Automation</h3>
@@ -518,6 +522,15 @@ const PremiumBoxesSection: React.FC = () => {
             
             {/* Left Box - Education */}
             <div className={styles.premiumBox + ' ' + styles.blackBox}>
+              <SparklesCore
+                background="#000000"
+                particleColor="#ffffff"
+                particleDensity={80}
+                minSize={1}
+                maxSize={3}
+                speed={2}
+                className={styles.sparklesBackground}
+              />
               <div className={styles.boxNumber}>03</div>
               <div className={`${styles.contentOverlay} ${styles.contentLight}`}>
                 <h3 className={styles.boxHeading}>Education</h3>
@@ -532,8 +545,9 @@ const PremiumBoxesSection: React.FC = () => {
             
             {/* Right Box - Skills */}
             <div className={styles.premiumBox + ' ' + styles.redBox}>
+              <ShaderAnimationBox4 />
               <div className={styles.boxNumber}>04</div>
-              <div className={`${styles.contentOverlay} ${styles.contentDark}`}>
+              <div className={`${styles.contentOverlay} ${styles.contentLight}`}>
                 <h3 className={styles.boxHeading}>Skills</h3>
                 <div className={styles.boxMeta}>Flutter • DRF • Python • Dart • Docker • MySQL</div>
                 <div className={`${styles.boxMeta} ${styles.mt6}`}>AI: Ollama • RAG • Agents • Prompt Engineering</div>
