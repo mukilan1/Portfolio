@@ -58,8 +58,17 @@
 }
 
 @keyframes borderPulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.5); }
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
 }
 
 .container {
@@ -110,8 +119,13 @@
 }
 
 @keyframes titleShimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .brandTitle::after {
@@ -127,8 +141,15 @@
 }
 
 @keyframes underlineGlow {
-  0% { opacity: 0.4; width: 60px; }
-  100% { opacity: 0.8; width: 80px; }
+  0% {
+    opacity: 0.4;
+    width: 60px;
+  }
+
+  100% {
+    opacity: 0.8;
+    width: 80px;
+  }
 }
 
 /* Luxury Ornament */
@@ -156,8 +177,13 @@
 }
 
 @keyframes diamondRotate {
-  0% { transform: rotate(45deg); }
-  100% { transform: rotate(405deg); }
+  0% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(405deg);
+  }
 }
 
 .brandSubtitle {
@@ -175,15 +201,15 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  align-items: flex-end;
-  text-align: right;
+  align-items: center;
+  text-align: center;
 }
 
 .contactItem {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .contactLabel {
@@ -234,6 +260,7 @@
 .availabilityStatus {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-top: 20px;
 }
@@ -247,8 +274,17 @@
 }
 
 @keyframes statusPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.8); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
 }
 
 .statusText {
@@ -303,20 +339,24 @@
 }
 
 @keyframes ornamentSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Divider - Luxury Line */
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.1) 20%, 
-    rgba(255, 255, 255, 0.3) 50%, 
-    rgba(255, 255, 255, 0.1) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      transparent 100%);
   margin: 0 0 60px 0;
   position: relative;
 }
@@ -432,7 +472,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
   background-size: 60px 60px;
@@ -476,10 +516,27 @@
 }
 
 @keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
-  25% { transform: translate(30px, -40px) scale(1.2); opacity: 0.4; }
-  50% { transform: translate(-20px, -80px) scale(0.8); opacity: 0.6; }
-  75% { transform: translate(50px, -30px) scale(1.1); opacity: 0.3; }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+
+  25% {
+    transform: translate(30px, -40px) scale(1.2);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translate(-20px, -80px) scale(0.8);
+    opacity: 0.6;
+  }
+
+  75% {
+    transform: translate(50px, -30px) scale(1.1);
+    opacity: 0.3;
+  }
 }
 
 /* Shimmer Effect */
@@ -489,28 +546,35 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.01) 20%, 
-    rgba(255, 255, 255, 0.03) 50%, 
-    rgba(255, 255, 255, 0.01) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.01) 20%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0.01) 80%,
+      transparent 100%);
   animation: shimmerSweep 8s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 @keyframes shimmerSweep {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 @keyframes patternShift {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
     opacity: 0.3;
   }
+
   50% {
     transform: translate(30px, 30px);
     opacity: 0.1;
@@ -520,79 +584,123 @@
 /* Responsive Design - Mobile First */
 @media (max-width: 1024px) {
   .container {
-    padding: 0;
+    padding: 40px;
   }
-  
+
   .brandTitle {
-    font-size: 120px;
-    letter-spacing: 14px;
+    font-size: 100px;
+    letter-spacing: 12px;
   }
-  
+
   .mainContent {
-    gap: 60px;
-    margin-bottom: 80px;
+    gap: 50px;
+    margin-bottom: 60px;
   }
-  
+
   .socialLinks {
-    gap: 48px;
+    gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
     padding: 0;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
-  
+
   .container {
-    padding: 0;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
-  
+
   .mainContent {
     flex-direction: column;
-    gap: 60px;
-    margin-bottom: 60px;
+    gap: 48px;
+    margin-bottom: 48px;
     text-align: center;
+    align-items: center;
   }
-  
+
   .brandSection {
     align-self: center;
   }
-  
+
   .brandTitle {
-    font-size: 80px;
-    letter-spacing: 10px;
+    font-size: 64px;
+    letter-spacing: 8px;
   }
-  
+
   .brandTitle::after {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
+  .luxuryOrnament {
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .brandSubtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-top: 24px;
+    text-align: center;
+  }
+
   .contactSection {
     align-items: center;
     text-align: center;
-    gap: 32px;
+    gap: 24px;
   }
-  
+
   .contactItem {
     align-items: center;
   }
-  
+
+  .contactLabel {
+    font-size: 10px;
+  }
+
+  .contactLink,
+  .contactText {
+    font-size: 16px;
+  }
+
+  .divider {
+    margin: 40px 0;
+  }
+
   .bottomSection {
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
     text-align: center;
   }
-  
+
   .socialLinks {
-    gap: 40px;
+    gap: 32px;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .socialLink {
-    font-size: 14px;
+    font-size: 13px;
     padding: 10px 14px;
+    letter-spacing: 1.5px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    order: 1;
+  }
+
+  .availabilityStatus {
+    justify-content: center;
   }
 }
 
@@ -600,41 +708,137 @@
   .footer {
     padding: 0;
   }
-  
+
   .container {
-    padding: 0;
+    padding: 24px 16px;
   }
-  
+
+  .mainContent {
+    gap: 36px;
+    margin-bottom: 36px;
+    align-items: center;
+  }
+
   .brandTitle {
-    font-size: 64px;
-    letter-spacing: 8px;
+    font-size: 48px;
+    letter-spacing: 6px;
   }
-  
+
   .brandSubtitle {
-    font-size: 14px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 20px;
   }
-  
+
+  .contactSection {
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactItem {
+    align-items: center;
+    text-align: center;
+  }
+
+  .availabilityStatus {
+    justify-content: center;
+  }
+
+  .contactLabel {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
   .contactLink,
   .contactText {
-    font-size: 16px;
+    font-size: 14px;
   }
-  
+
   .socialLinks {
-    gap: 32px;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .socialLink {
-    font-size: 13px;
-    padding: 8px 12px;
-  }
-  
-  .copyright {
     font-size: 12px;
+    padding: 8px 12px;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
   }
-  
+
+  .copyright {
+    font-size: 11px;
+  }
+
+  .luxuryOrnament {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .ornamentLine {
+    width: 20px;
+  }
+
+  .ornamentDiamond {
+    width: 4px;
+    height: 4px;
+  }
+
   .patternGrid {
     background-size: 40px 40px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .container {
+    padding: 20px 12px;
+  }
+
+  .brandTitle {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+
+  .brandSubtitle {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .contactLink,
+  .contactText {
+    font-size: 13px;
+  }
+
+  .socialLinks {
+    gap: 16px;
+  }
+
+  .socialLink {
+    font-size: 11px;
+    padding: 6px 10px;
+    min-width: 100px;
+  }
+
+  .copyright {
+    font-size: 10px;
+  }
+
+  .contactSection {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactItem {
+    align-items: center;
+    text-align: center;
+  }
+
+  .availabilityStatus {
+    justify-content: center;
   }
 }
 
@@ -664,6 +868,7 @@
     opacity: 0;
     transform: translateY(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -674,6 +879,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

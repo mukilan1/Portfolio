@@ -12,24 +12,33 @@
   align-items: center;
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   opacity: 1;
-  transform: scale(0.8) rotate(-5deg) translateZ(0); /* Added translateZ for hardware acceleration */
-  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); /* Faster, smoother easing */
+  transform: scale(0.8) rotate(-5deg) translateZ(0);
+  /* Added translateZ for hardware acceleration */
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Faster, smoother easing */
   border-radius: 24px;
-  will-change: transform; /* Performance hint for browser */
-  backface-visibility: hidden; /* Additional performance optimization */
-  perspective: 1000px; /* 3D context for better performance */
+  will-change: transform;
+  /* Performance hint for browser */
+  backface-visibility: hidden;
+  /* Additional performance optimization */
+  perspective: 1000px;
+  /* 3D context for better performance */
 }
 
 /* Animation trigger class - smooth transition to final state */
 .boxingFightSection.animate {
-  transform: scale(1) rotate(0deg) translateZ(0); /* Hardware acceleration for smooth animation */
-  backface-visibility: hidden; /* Performance optimization */
+  transform: scale(1) rotate(0deg) translateZ(0);
+  /* Hardware acceleration for smooth animation */
+  backface-visibility: hidden;
+  /* Performance optimization */
 }
 
 /* Reverse animation - smooth transition back to initial state */
 .boxingFightSection.reverse {
-  transform: scale(0.8) rotate(-5deg) translateZ(0); /* Back to initial state */
-  backface-visibility: hidden; /* Performance optimization */
+  transform: scale(0.8) rotate(-5deg) translateZ(0);
+  /* Back to initial state */
+  backface-visibility: hidden;
+  /* Performance optimization */
 }
 
 /* Empty white section above Boxing Fight Section */
@@ -120,6 +129,7 @@
     transform: translateX(-100px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -131,6 +141,7 @@
     transform: translateX(100px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -232,24 +243,24 @@
     left: 80px;
     top: 100px;
   }
-  
+
   .textBlock {
     padding-left: 80px;
     padding-top: 100px;
   }
-  
+
   .mainHeading {
     font-size: clamp(32px, 5vw, 64px);
   }
-  
+
   .sliderIndicator {
     left: 80px;
   }
-  
+
   .socialLinks {
     right: 80px;
   }
-  
+
   .boxingFightSection {
     width: calc(100% - 60px);
     height: calc(100vh - 60px);
@@ -259,77 +270,181 @@
 }
 
 @media (max-width: 768px) {
+  .boxingFightSection {
+    width: calc(100% - 32px);
+    height: auto;
+    min-height: calc(100vh - 32px);
+    margin: 16px;
+    border-radius: 16px;
+    padding: 24px 0;
+    /* Adjust animation for mobile - less dramatic rotation */
+    transform: scale(0.9) rotate(-2deg) translateZ(0);
+  }
+
+  .boxingFightSection.animate {
+    transform: scale(1) rotate(0deg) translateZ(0);
+  }
+
+  .boxingFightSection.reverse {
+    transform: scale(0.9) rotate(-2deg) translateZ(0);
+  }
+
   .contentContainer {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 40px;
-    padding: 0 40px;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+    padding: 24px;
+    height: auto;
   }
-  
+
   .textBlock {
     padding-left: 0;
-    padding-top: 80px;
+    padding-top: 40px;
     order: 2;
     text-align: center;
+    max-width: 100%;
   }
-  
+
   .imageContainer {
     padding-right: 0;
     order: 1;
+    height: auto;
+    padding: 0;
   }
-  
+
   .boxerImage {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     height: auto;
+    max-height: 280px;
+    object-fit: contain;
   }
-  
+
+  .mainHeading {
+    font-size: clamp(28px, 8vw, 48px);
+    text-align: center;
+  }
+
+  .viewCaseLink {
+    display: inline-block;
+    margin-top: 16px;
+  }
+
   .backgroundNumber {
-    font-size: 100px;
-    left: 20px;
-    top: 60px;
+    font-size: 80px;
+    left: 16px;
+    top: 40px;
+    opacity: 0.04;
   }
-  
+
   .sliderIndicator {
-    left: 40px;
-    bottom: 20px;
+    left: 24px;
+    bottom: 24px;
+    gap: 8px;
   }
-  
+
+  .indicatorLine {
+    width: 20px;
+  }
+
   .socialLinks {
-    right: 40px;
-    bottom: 20px;
-    flex-direction: column;
-    gap: 15px;
+    right: 24px;
+    bottom: 24px;
+    flex-direction: row;
+    gap: 16px;
   }
-  
-  .boxingFightSection {
-    width: calc(100% - 40px);
-    height: calc(100vh - 40px);
-    margin: 20px;
-    border-radius: 16px;
+
+  .socialLink {
+    font-size: 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .boxingFightSection {
+    width: calc(100% - 16px);
+    min-height: calc(100vh - 16px);
+    margin: 8px;
+    border-radius: 12px;
+    /* Even less dramatic on very small screens */
+    transform: scale(0.95) rotate(-1deg) translateZ(0);
+  }
+
+  .boxingFightSection.animate {
+    transform: scale(1) rotate(0deg) translateZ(0);
+  }
+
+  .boxingFightSection.reverse {
+    transform: scale(0.95) rotate(-1deg) translateZ(0);
+  }
+
+  .contentContainer {
+    padding: 16px;
+    gap: 16px;
+  }
+
   .mainHeading {
-    font-size: 32px;
+    font-size: clamp(24px, 9vw, 36px);
     line-height: 1.2;
   }
-  
+
   .backgroundNumber {
-    font-size: 80px;
+    font-size: 60px;
     opacity: 0.03;
-    color: #0A0A0A;
+    left: 12px;
+    top: 24px;
   }
-  
+
   .textBlock {
-    padding-top: 60px;
+    padding-top: 24px;
   }
-  
+
+  .boxerImage {
+    max-height: 220px;
+  }
+
+  .sliderIndicator {
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .socialLinks {
+    right: 16px;
+    bottom: 16px;
+    gap: 12px;
+  }
+
+  .socialLink {
+    font-size: 9px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
   .boxingFightSection {
-    width: calc(100% - 20px);
-    height: calc(100vh - 20px);
-    margin: 10px;
-    border-radius: 12px;
+    margin: 6px;
+    width: calc(100% - 12px);
+    border-radius: 10px;
+  }
+
+  .contentContainer {
+    padding: 12px;
+  }
+
+  .mainHeading {
+    font-size: clamp(20px, 10vw, 28px);
+  }
+
+  .textBlock {
+    padding-top: 16px;
+  }
+
+  .boxerImage {
+    max-height: 180px;
+  }
+
+  .sliderIndicator,
+  .socialLinks {
+    display: none;
+    /* Hide on very small screens for cleaner look */
   }
 }

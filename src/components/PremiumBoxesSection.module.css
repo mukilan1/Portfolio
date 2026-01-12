@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.15),
     0 8px 16px rgba(0, 0, 0, 0.1);
   transition: none;
@@ -59,7 +59,7 @@
 
 .premiumBox:hover {
   transform: translateY(-8px);
-  box-shadow: 
+  box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.2),
     0 12px 24px rgba(0, 0, 0, 0.15);
 }
@@ -88,11 +88,18 @@
   right: 24px;
   z-index: 3;
 }
-.contentDark { color: #000; }
-.contentLight { color: #fff; }
-.contentVisible { 
-  color: #ffffff; 
-  text-shadow: 
+
+.contentDark {
+  color: #000;
+}
+
+.contentLight {
+  color: #fff;
+}
+
+.contentVisible {
+  color: #ffffff;
+  text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.8),
     -1px -1px 0 #000000,
     1px -1px 0 #000000,
@@ -103,11 +110,13 @@
     -2px 2px 0 #000000,
     2px 2px 0 #000000;
 }
+
 .boxHeading {
   font-size: 36px;
   font-weight: 800;
   margin: 0;
 }
+
 .boxList {
   margin-top: 8px;
   padding-left: 18px;
@@ -115,12 +124,16 @@
   font-weight: bold;
   font-size: 18px;
 }
-.boxMeta { 
-  margin-top: 8px; 
-  font-size: 16px; 
-  font-weight: bold; 
+
+.boxMeta {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
 }
-.mt6 { margin-top: 6px; }
+
+.mt6 {
+  margin-top: 6px;
+}
 
 /* Box Numbers */
 .boxNumber {
@@ -139,7 +152,7 @@
 /* Red box number (white text) */
 .redBox .boxNumber {
   color: #ffffff;
-  text-shadow: 
+  text-shadow:
     0 4px 8px rgba(0, 0, 0, 0.5),
     0 2px 4px rgba(255, 255, 255, 0.1);
 }
@@ -147,7 +160,7 @@
 /* Black box number (white text) */
 .blackBox .boxNumber {
   color: #ffffff;
-  text-shadow: 
+  text-shadow:
     0 4px 8px rgba(0, 0, 0, 0.5),
     0 2px 4px rgba(255, 255, 255, 0.1);
 }
@@ -194,6 +207,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -205,6 +219,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -212,9 +227,17 @@
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animateFadeInDown {
@@ -246,6 +269,7 @@
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
 }
+
 .redBox::after {
   content: '';
   position: absolute;
@@ -275,75 +299,212 @@
 }
 
 @keyframes premiumGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 @keyframes premiumGlowDark {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .premiumBoxesSection {
-    padding: 0;
-    margin: 0;
+    height: auto;
+    min-height: 60vh;
+    padding: 40px 20px;
   }
-  
-  .container {
-    padding: 0;
-    margin: 0;
-  }
-  
-  .boxesWrapper {
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin: 0;
-  }
-  
+
   .premiumBox {
     width: 600px;
     height: 400px;
   }
-  
+
   .boxNumber {
     font-size: 50px;
+  }
+
+  .boxHeading {
+    font-size: 28px;
+  }
+
+  .boxList {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .premiumBoxesSection {
+    height: auto;
+    min-height: auto;
+    padding: 24px 16px;
+  }
+
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .boxesWrapper {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .premiumBox {
+    width: 100%;
+    max-width: calc(100vw - 32px);
+    height: auto;
+    min-height: 320px;
+    aspect-ratio: 16/10;
+    border-radius: 16px;
+  }
+
+  .premiumBox::after {
+    border-radius: 16px;
+  }
+
+  .boxNumber {
+    font-size: 40px;
+    top: 16px;
+    left: 16px;
+  }
+
+  .contentOverlay {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .boxHeading {
+    font-size: 24px;
+  }
+
+  .boxList {
+    font-size: 14px;
+    padding-left: 14px;
+    line-height: 1.4;
+  }
+
+  .boxMeta {
+    font-size: 14px;
+  }
+
+  .heroBackground,
+  .backgroundCanvas,
+  .sparklesBackground {
+    border-radius: 16px;
   }
 }
 
 @media (max-width: 480px) {
   .premiumBoxesSection {
-    padding: 0;
-    margin: 0;
+    padding: 16px 12px;
   }
-  
+
   .container {
     padding: 0;
     margin: 0;
   }
-  
+
   .boxesWrapper {
     padding: 0;
     margin: 0;
-    gap: 0;
+    gap: 16px;
   }
-  
+
   .premiumBox {
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    min-height: 280px;
+    border-radius: 12px;
   }
-  
+
+  .premiumBox::after {
+    border-radius: 12px;
+  }
+
   .boxNumber {
-    font-size: 40px;
+    font-size: 32px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .contentOverlay {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .boxHeading {
+    font-size: 20px;
+  }
+
+  .boxList {
+    font-size: 12px;
+    padding-left: 12px;
+  }
+
+  .boxMeta {
+    font-size: 12px;
+  }
+
+  .heroBackground,
+  .backgroundCanvas,
+  .sparklesBackground {
+    border-radius: 12px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .premiumBoxesSection {
+    padding: 12px 8px;
+  }
+
+  .boxesWrapper {
+    gap: 12px;
+  }
+
+  .premiumBox {
+    min-height: 240px;
+    border-radius: 10px;
+  }
+
+  .boxNumber {
+    font-size: 28px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .contentOverlay {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .boxHeading {
+    font-size: 18px;
+  }
+
+  .boxList {
+    font-size: 11px;
   }
 }

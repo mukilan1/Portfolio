@@ -17,26 +17,54 @@ const SoulSection: React.FC = () => {
       const viewportHeight = window.innerHeight;
 
       // Calculate scroll progress through the section
-      const scrollProgress = Math.max(0, Math.min(1, 
+      const scrollProgress = Math.max(0, Math.min(1,
         (viewportHeight - sectionTop) / (viewportHeight + sectionHeight)
       ));
 
-      // Animate each letter with different directions and speeds
-      letterRefs.current.forEach((letter, index) => {
-        if (!letter) return;
+      const isMobile = window.innerWidth <= 768;
 
-        const speeds = [1.5, -2.2, 1.8, -1.2]; // Increased speeds for C, O, D, E
-        const baseOffset = scrollProgress * 150 * speeds[index]; // Increased multiplier from 100 to 150
-        
-        letter.style.transform = `translateY(${baseOffset}px)`;
-      });
+      if (isMobile) {
+        // Mobile: Horizontal left-right alternating animation
+        letterRefs.current.forEach((letter, index) => {
+          if (!letter) return;
+
+          // Alternating directions: 1 = left-to-right, -1 = right-to-left
+          const direction = index % 2 === 0 ? 1 : -1;
+          const speed = 0.8 + (index * 0.15); // Slightly different speeds
+
+          // Start from off-screen (-30px or 30px) and animate to center (0)
+          const startOffset = -30 * direction;
+          const currentOffset = startOffset + (scrollProgress * 30 * direction);
+
+          letter.style.transform = `translateX(${currentOffset}px)`;
+          letter.style.opacity = `${Math.min(1, scrollProgress * 2)}`;
+        });
+      } else {
+        // Desktop: Vertical parallax animation
+        letterRefs.current.forEach((letter, index) => {
+          if (!letter) return;
+
+          const speeds = [1.5, -2.2, 1.8, -1.2]; // Speeds for C, O, D, E
+          const baseOffset = scrollProgress * 150 * speeds[index];
+
+          letter.style.transform = `translateY(${baseOffset}px)`;
+          letter.style.opacity = '1';
+        });
+      }
+    };
+
+    const handleResize = () => {
+      // Re-evaluate on resize
+      handleScroll();
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     handleScroll(); // Initial call
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -46,7 +74,7 @@ const SoulSection: React.FC = () => {
         {/* Column 1: "C" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[0] = el; }}
               className={styles.letter}
             >
@@ -58,7 +86,7 @@ const SoulSection: React.FC = () => {
         {/* Column 2: "O" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[1] = el; }}
               className={styles.letterO}
             >
@@ -70,7 +98,7 @@ const SoulSection: React.FC = () => {
         {/* Column 3: "D" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[2] = el; }}
               className={styles.letter}
             >
@@ -82,7 +110,7 @@ const SoulSection: React.FC = () => {
         {/* Column 4: "E" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[3] = el; }}
               className={styles.letter}
             >

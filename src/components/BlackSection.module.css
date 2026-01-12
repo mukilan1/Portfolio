@@ -1,17 +1,22 @@
 /* Black Section Styles */
 .blackSection {
-  min-height: 60vh; /* Same reduced height as FashionistaSection */
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text for contrast */
+  min-height: 60vh;
+  /* Same reduced height as FashionistaSection */
+  background-color: #000000;
+  /* Black background */
+  color: #ffffff;
+  /* White text for contrast */
   position: relative;
-  padding: 40px 60px; /* Same reduced padding */
+  padding: 40px 60px;
+  /* Same reduced padding */
   display: flex;
   align-items: center;
   justify-content: center;
   /* Initial position for train animation */
   transform: translateX(100%);
   opacity: 0;
-  transition: none; /* Remove CSS transitions, using JS animation */
+  transition: none;
+  /* Remove CSS transitions, using JS animation */
 }
 
 .container {
@@ -20,9 +25,11 @@
   height: 100%;
   position: relative;
   display: flex;
-  align-items: center; /* Changed from flex-start to center */
+  align-items: center;
+  /* Changed from flex-start to center */
   justify-content: space-between;
-  min-height: calc(60vh - 80px); /* Reduced minimum height */
+  min-height: calc(60vh - 80px);
+  /* Reduced minimum height */
 }
 
 /* Left Content */
@@ -43,7 +50,8 @@
   letter-spacing: -0.01em;
   line-height: 1.1;
   margin: 0;
-  color: #ffffff; /* White text */
+  color: #ffffff;
+  /* White text */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -54,7 +62,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0;
-  color: #ffffff; /* White text */
+  color: #ffffff;
+  /* White text */
   opacity: 0.8;
 }
 
@@ -71,7 +80,8 @@
   text-transform: uppercase;
   letter-spacing: 0.3px;
   margin: 0;
-  color: #ffffff; /* White text */
+  color: #ffffff;
+  /* White text */
 }
 
 .bulletList {
@@ -87,21 +97,24 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #ffffff; /* White text */
+  color: #ffffff;
+  /* White text */
   text-transform: capitalize;
 }
 
 /* Shop Button */
 .shopButton {
   background-color: transparent;
-  border: 2px solid #ffffff; /* White border */
+  border: 2px solid #ffffff;
+  /* White border */
   border-radius: 5px;
   padding: 12px 24px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #ffffff; /* White text */
+  color: #ffffff;
+  /* White text */
   cursor: pointer;
   transition: all 0.2s ease;
   width: fit-content;
@@ -109,8 +122,10 @@
 }
 
 .shopButton:hover {
-  background-color: #ffffff; /* White background on hover */
-  color: #000000; /* Black text on hover */
+  background-color: #ffffff;
+  /* White background on hover */
+  color: #000000;
+  /* Black text on hover */
 }
 
 /* Right Content - Year Display */
@@ -130,7 +145,8 @@
   font-size: clamp(80px, 12vw, 140px);
   font-weight: 900;
   line-height: 0.8;
-  color: #ffffff; /* White text */
+  color: #ffffff;
+  /* White text */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   position: relative;
 }
@@ -139,7 +155,7 @@
 .yearBottom {
   position: relative;
   display: block;
-  text-shadow: 
+  text-shadow:
     2px 0 #ffffff,
     -2px 0 #ffffff,
     0 2px #ffffff,
@@ -175,11 +191,27 @@
 
 /* Animation for glitch effect */
 @keyframes glitch {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-2px); }
-  40% { transform: translateX(2px); }
-  60% { transform: translateX(-1px); }
-  80% { transform: translateX(1px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-2px);
+  }
+
+  40% {
+    transform: translateX(2px);
+  }
+
+  60% {
+    transform: translateX(-1px);
+  }
+
+  80% {
+    transform: translateX(1px);
+  }
 }
 
 .yearDisplay:hover .yearTop,
@@ -190,73 +222,162 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .blackSection {
-    padding: 30px 40px;
-    min-height: 50vh; /* Reduced height for tablets */
+    padding: 30px 32px;
+    min-height: 50vh;
+    /* Less dramatic animation on tablets */
+    transform: translateX(80%);
   }
-  
+
   .container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
-    min-height: 400px; /* Reduced minimum height */
+    gap: 36px;
+    min-height: 400px;
   }
-  
+
   .leftContent {
     max-width: 100%;
     padding-right: 0;
+    gap: 24px;
   }
-  
+
   .rightContent {
     max-width: 100%;
     padding-left: 0;
     justify-content: flex-start;
   }
+
+  .yearDisplay {
+    font-size: clamp(72px, 14vw, 120px);
+  }
 }
 
 @media (max-width: 768px) {
   .blackSection {
-    padding: 20px 30px;
-    min-height: 45vh; /* Reduced height for mobile */
+    padding: 24px;
+    min-height: 45vh;
+    /* Even less dramatic on mobile */
+    transform: translateX(60%);
   }
-  
-  .mainHeading {
-    font-size: clamp(24px, 6vw, 36px);
-  }
-  
-  .yearDisplay {
-    font-size: clamp(60px, 15vw, 100px);
-  }
-  
+
   .container {
-    gap: 30px;
-    min-height: 350px; /* Reduced minimum height */
+    gap: 28px;
+    min-height: 350px;
+  }
+
+  .mainHeading {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .subheading {
+    font-size: 12px;
+  }
+
+  .bulletTitle {
+    font-size: 14px;
+  }
+
+  .bulletList li {
+    font-size: 12px;
+  }
+
+  .yearDisplay {
+    font-size: clamp(56px, 16vw, 90px);
+  }
+
+  .shopButton {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+
+  .leftContent {
+    gap: 20px;
+  }
+
+  .bulletSection {
+    gap: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .blackSection {
-    padding: 15px 20px;
-    min-height: 40vh; /* Reduced height for small mobile */
+    padding: 20px 16px;
+    min-height: auto;
+    /* Minimal slide on very small screens */
+    transform: translateX(50%);
   }
-  
+
+  .container {
+    gap: 24px;
+    min-height: 280px;
+  }
+
   .mainHeading {
-    font-size: clamp(20px, 7vw, 28px);
+    font-size: clamp(18px, 7vw, 26px);
   }
-  
+
+  .subheading {
+    font-size: 11px;
+  }
+
   .yearDisplay {
-    font-size: clamp(40px, 18vw, 80px);
+    font-size: clamp(40px, 18vw, 70px);
   }
-  
+
   .bulletSection {
     gap: 10px;
   }
-  
-  .shopButton {
-    padding: 10px 20px;
-    font-size: 11px;
+
+  .bulletTitle {
+    font-size: 13px;
   }
-  
+
+  .bulletList {
+    gap: 6px;
+    padding-left: 16px;
+  }
+
+  .bulletList li {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .shopButton {
+    padding: 8px 16px;
+    font-size: 10px;
+  }
+
+  .leftContent {
+    gap: 16px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .blackSection {
+    padding: 16px 12px;
+    transform: translateX(40%);
+  }
+
   .container {
-    min-height: 300px; /* Reduced minimum height */
+    gap: 20px;
+    min-height: 240px;
+  }
+
+  .mainHeading {
+    font-size: clamp(16px, 8vw, 22px);
+  }
+
+  .yearDisplay {
+    font-size: clamp(32px, 20vw, 50px);
+  }
+
+  .bulletList li {
+    font-size: 10px;
+  }
+
+  .shopButton {
+    padding: 6px 12px;
+    font-size: 9px;
   }
 }
