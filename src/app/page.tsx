@@ -10,9 +10,9 @@ export default function Home() {
       <SoulSection />
       <AnimeCatalogSection />
       <PremiumBoxesSection />
-      <BoxingFightSection />
       <XFLEXOSection />
-      <div style={{ height: '50vh', backgroundColor: '#ffffff' }} />
+      <BoxingFightSection />
+      <div style={{ height: '30vh', backgroundColor: '#000000' }} />
     </>
   );
 }

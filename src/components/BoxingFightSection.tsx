@@ -1,4 +1,5 @@
-'use client';
+
+"use client";
 
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import Image from 'next/image';
@@ -420,6 +421,8 @@ const BoxingFightSection: React.FC = () => {
       >
         <div className={styles.boxingFightSection}>
           {/* Waves Background */}
+          {/* Dynamic Backgrounds */}
+          {/* Waves Background */}
           <Waves
             lineColor="rgba(255, 255, 255, 0.3)"
             backgroundColor="black"
@@ -432,6 +435,7 @@ const BoxingFightSection: React.FC = () => {
             friction={0.925}
             tension={0.005}
             maxCursorMove={100}
+            className="w-full h-full"
           />
 
           <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%' }}>
