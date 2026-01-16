@@ -12,6 +12,7 @@ export default function Home() {
       <PremiumBoxesSection />
       <BoxingFightSection />
       <XFLEXOSection />
+      <div style={{ height: '50vh', backgroundColor: '#ffffff' }} />
     </>
   );
 }
