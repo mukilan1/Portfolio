@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import Image from 'next/image';
-// import * as THREE from "three";
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import styles from './BoxingFightSection.module.css';
 import { cn } from "@/lib/utils"
 
@@ -27,13 +27,7 @@ interface MouseState {
 }
 
 interface WavesProps {
-  /**
-   * Color of the wave lines
-   */
   lineColor?: string
-  /**
-   * Background color of the container
-   */
   backgroundColor?: string
   waveSpeedX?: number
   waveSpeedY?: number
@@ -79,6 +73,10 @@ class Noise {
       new Grad(0, -1, 1),
       new Grad(0, 1, -1),
       new Grad(0, -1, -1),
+      new Grad(0, 1, 1),
+      new Grad(0, -1, 1),
+      new Grad(0, 1, -1),
+      new Grad(0, -1, -1),
     ]
     this.p = [
       151, 160, 137, 91, 90, 15, 131, 13, 201, 95, 96, 53, 194, 233, 7, 225,
@@ -95,7 +93,7 @@ class Noise {
       39, 253, 19, 98, 108, 110, 79, 113, 224, 232, 178, 185, 112, 104, 218,
       246, 97, 228, 251, 34, 242, 193, 238, 210, 144, 12, 191, 179, 162, 241,
       81, 51, 145, 235, 249, 14, 239, 107, 49, 192, 214, 31, 181, 199, 106, 157,
-      184, 84, 204, 176, 115, 121, 50, 45, 127, 4, 150, 254, 138, 236, 205, 93,
+      98, 184, 84, 204, 176, 115, 121, 50, 45, 127, 4, 150, 254, 138, 236, 205, 93,
       222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180,
     ]
     this.perm = new Array(512)
@@ -387,280 +385,141 @@ export function Waves({
   )
 }
 
-/*
-type UniformType = {
-  time: { type: string; value: number };
-  resolution: { type: string; value: THREE.Vector2 };
-};
-*/
-
-/*
-export function ShaderAnimation({ isVisible }: { isVisible: boolean }) {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const sceneRef = useRef<{
-    camera: THREE.Camera
-    scene: THREE.Scene
-    renderer: THREE.WebGLRenderer
-    uniforms: UniformType
-    animationId: number
-  } | null>(null)
-  const isVisibleRef = useRef(isVisible)
-
-  useEffect(() => {
-    isVisibleRef.current = isVisible
-  }, [isVisible])
-
-  useEffect(() => {
-    if (!containerRef.current) return
-
-    const container = containerRef.current
-
-    // Vertex shader
-    const vertexShader = `
-      void main() {
-        gl_Position = vec4( position, 1.0 );
-      }
-    `
-
-    // Fragment shader
-    const fragmentShader = `
-      #define TWO_PI 6.2831853072
-      #define PI 3.14159265359
-
-      precision highp float;
-      uniform vec2 resolution;
-      uniform float time;
-
-      void main(void) {
-        vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
-        float t = time*0.05;
-        float lineWidth = 0.002;
-
-        vec3 color = vec3(0.0);
-        for(int j = 0; j < 3; j++){
-          for(int i=0; i < 5; i++){
-            color[j] += lineWidth*float(i*i) / abs(fract(t - 0.01*float(j)+float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));
-          }
-        }
-        
-        gl_FragColor = vec4(color[0],color[1],color[2],1.0);
-      }
-    `
-
-    // Initialize Three.js scene
-    const camera = new THREE.Camera()
-    camera.position.z = 1
-
-    const scene = new THREE.Scene()
-    const geometry = new THREE.PlaneGeometry(2, 2)
-
-    const uniforms: UniformType = {
-      time: { type: "f", value: 1.0 },
-      resolution: { type: "v2", value: new THREE.Vector2() },
-    }
-
-    const material = new THREE.ShaderMaterial({
-      uniforms: uniforms,
-      vertexShader: vertexShader,
-      fragmentShader: fragmentShader,
-    })
-
-    const mesh = new THREE.Mesh(geometry, material)
-    scene.add(mesh)
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
-    renderer.setPixelRatio(window.devicePixelRatio)
-
-    container.appendChild(renderer.domElement)
-
-    // Handle window resize
-    const onWindowResize = () => {
-      const width = container.clientWidth
-      const height = container.clientHeight
-      renderer.setSize(width, height)
-      uniforms.resolution.value.x = renderer.domElement.width
-      uniforms.resolution.value.y = renderer.domElement.height
-    }
-
-    // Initial resize
-    onWindowResize()
-    window.addEventListener("resize", onWindowResize, false)
-
-    // Store scene references for cleanup
-    sceneRef.current = {
-      camera,
-      scene,
-      renderer,
-      uniforms,
-      animationId: 0,
-    }
-
-    // Cleanup function
-    return () => {
-      window.removeEventListener("resize", onWindowResize)
-
-      if (sceneRef.current) {
-        cancelAnimationFrame(sceneRef.current.animationId)
-
-        if (container && sceneRef.current.renderer.domElement) {
-          container.removeChild(sceneRef.current.renderer.domElement)
-        }
-
-        sceneRef.current.renderer.dispose()
-        geometry.dispose()
-        material.dispose()
-      }
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!sceneRef.current) return
-
-    const { uniforms, renderer, scene, camera } = sceneRef.current
-
-    if (isVisible) {
-      uniforms.time.value = 0 // Reset time when starting animation
-      const animate = () => {
-        if (!isVisibleRef.current) return
-        uniforms.time.value += 0.05
-        renderer.render(scene, camera)
-        sceneRef.current!.animationId = requestAnimationFrame(animate)
-      }
-      animate()
-    } else {
-      cancelAnimationFrame(sceneRef.current.animationId)
-    }
-  }, [isVisible])
-
-  return (
-    <div
-      ref={containerRef}
-      className={`${styles.shaderBackground} w-full h-full`}
-    />
-  )
-}
-*/
-
 const BoxingFightSection: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('down');
-  const [hasCompletedAnimation, setHasCompletedAnimation] = useState(false);
-  const prevScrollY = useRef(0);
+  const targetRef = useRef<HTMLElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  // Initialize scroll position on client side
-  useEffect(() => {
-    prevScrollY.current = window.scrollY;
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"],
+  });
 
-  useEffect(() => {
-    const currentRef = sectionRef.current;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Use requestAnimationFrame for smoother performance
-        requestAnimationFrame(() => {
-          entries.forEach((entry) => {
-            const isInView = entry.isIntersecting && entry.intersectionRatio > 0.2; // Reduced threshold
-            const currentScrollY = window.scrollY;
-            const direction = currentScrollY > prevScrollY.current ? 'down' : 'up';
+  const [stickyState, setStickyState] = useState<'normal' | 'fixed' | 'bottom'>('normal');
+  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-200vw"]);
 
-            if (isInView && direction === 'down' && !hasCompletedAnimation) {
-              setIsVisible(true);
-              setScrollDirection('down');
-              // Mark animation as completed after first down scroll
-              setTimeout(() => setHasCompletedAnimation(true), 1200); // Match CSS transition duration
-            } else if (direction === 'up') {
-              setScrollDirection('up');
-              if (!hasCompletedAnimation) {
-                setIsVisible(false);
-              }
-              // Don't change isVisible if animation is completed
-            }
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest <= 0) setStickyState('normal');
+    else if (latest >= 1) setStickyState('bottom');
+    else setStickyState('fixed');
 
-            prevScrollY.current = currentScrollY;
-          });
-        });
-      },
-      {
-        threshold: [0, 0.2, 0.5, 1], // Fewer thresholds for better performance
-        rootMargin: '-10% 0px -10% 0px' // Smaller margin for earlier detection
-      }
-    );
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [hasCompletedAnimation]); // Include hasCompletedAnimation in dependencies
+    if (latest < 0.33) setActiveSlide(0);
+    else if (latest < 0.66) setActiveSlide(1);
+    else setActiveSlide(2);
+  });
 
   return (
-    <section
-      ref={sectionRef}
-      className={`${styles.boxingFightSection} ${styles.fullHeight} ${hasCompletedAnimation ? styles.animate :
-          (isVisible && scrollDirection === 'down') ? styles.animate :
-            (scrollDirection === 'up' && !hasCompletedAnimation) ? styles.reverse : ''
-        }`}
-    >
-      {/* Waves Background */}
-      <Waves
-        lineColor="rgba(255, 255, 255, 0.3)"
-        backgroundColor="black"
-        waveSpeedX={0.0125}
-        waveSpeedY={0.005}
-        waveAmpX={32}
-        waveAmpY={16}
-        xGap={10}
-        yGap={32}
-        friction={0.925}
-        tension={0.005}
-        maxCursorMove={100}
-      />
-
-      {/* Background overlay number */}
-      {/* <ShaderAnimation isVisible={isVisible} /> */}
-
-      {/* Main content container */}
-      <div className={styles.contentContainer}>
-        {/* Left side - Text content */}
-        <div className={styles.textBlock}>
-          <h1 className={styles.mainHeading}><span>AI + Full‑Stack</span><span>Case Study</span></h1>
-          <a href="#work" className={styles.viewCaseLink}>View Projects</a>
-        </div>
-
-        {/* Right side - Image */}
-        <div className={styles.imageContainer}>
-          <Image
-            src="/Casual_sitting.jpeg"
-            alt="Case Study Image"
-            width={500}
-            height={350}
-            className={styles.boxerImage}
-            priority
+    <section ref={targetRef} className={styles.scrollContainer}>
+      <motion.div
+        className={styles.stickyWrapper}
+        style={{
+          position: stickyState === 'fixed' ? 'fixed' : 'absolute',
+          top: stickyState === 'bottom' ? 'auto' : 0,
+          bottom: stickyState === 'bottom' ? 0 : 'auto',
+          left: 0
+        }}
+      >
+        <div className={styles.boxingFightSection}>
+          {/* Waves Background */}
+          <Waves
+            lineColor="rgba(255, 255, 255, 0.3)"
+            backgroundColor="black"
+            waveSpeedX={0.0125}
+            waveSpeedY={0.005}
+            waveAmpX={32}
+            waveAmpY={16}
+            xGap={10}
+            yGap={32}
+            friction={0.925}
+            tension={0.005}
+            maxCursorMove={100}
           />
+
+          <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%' }}>
+
+            {/* Section 1: AI + Full-Stack Case Study (Original) */}
+            <div style={{ width: '100vw', height: '100%', position: 'relative' }}>
+              <div className={styles.contentContainer}>
+                {/* Left side - Text content */}
+                <div className={styles.textBlock}>
+                  <h1 className={styles.mainHeading}><span>AI + Full‑Stack</span><span>Case Study</span></h1>
+                  <a href="#work" className={styles.viewCaseLink}>View Projects</a>
+                </div>
+
+                {/* Right side - Image */}
+                <div className={styles.imageContainer}>
+                  <Image
+                    src="/Casual_sitting.jpeg"
+                    alt="Case Study Image"
+                    width={500}
+                    height={350}
+                    className={styles.boxerImage}
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Section 2: System Architecture */}
+            <div style={{ width: '100vw', height: '100%', position: 'relative' }}>
+              <div className={styles.contentContainer}>
+                {/* Left side - Text Overlay */}
+                <div className={styles.textBlock}>
+                  <h2 className={styles.mainHeading} style={{ fontSize: '48px' }}><span>System</span><span>Architecture</span></h2>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: '20px', lineHeight: '1.6' }}>
+                    Leveraging modern frameworks to build scalable, resilient, and high-performance applications.
+                    Integrating AI agents for intelligent automation.
+                  </p>
+                </div>
+                {/* Right Side - Visual */}
+                <div className={styles.imageContainer}>
+                  <div style={{ width: '400px', height: '300px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
+                    <span style={{ color: '#fff', fontSize: '24px', opacity: 0.5 }}>Architecture Diagram</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 3: Technical Deep Dive */}
+            <div style={{ width: '100vw', height: '100%', position: 'relative' }}>
+              <div className={styles.contentContainer}>
+                {/* Left side - Text Overlay */}
+                <div className={styles.textBlock}>
+                  <h2 className={styles.mainHeading} style={{ fontSize: '48px' }}><span>Technical</span><span>Deep Dive</span></h2>
+                  <ul style={{ color: 'rgba(255,255,255,0.7)', marginTop: '20px', lineHeight: '1.8', listStyle: 'none', padding: 0 }}>
+                    <li style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginBottom: '10px' }}>• Next.js / React Server Components</li>
+                    <li style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginBottom: '10px' }}>• Python / Fast API AI Services</li>
+                    <li style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginBottom: '10px' }}>• Vector Database & RAG Implementation</li>
+                  </ul>
+                </div>
+                {/* Right Side - Visual */}
+                <div className={styles.imageContainer}>
+                  <div style={{ width: '400px', height: '300px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
+                    <span style={{ color: '#fff', fontSize: '24px', opacity: 0.5 }}>Tech Stack Grid</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </motion.div>
+
+          {/* Bottom left slider indicator */}
+          <div className={styles.sliderIndicator}>
+            <div className={cn(styles.indicatorLine, activeSlide === 0 ? styles.active : "")}></div>
+            <div className={cn(styles.indicatorLine, activeSlide === 1 ? styles.active : "")}></div>
+            <div className={cn(styles.indicatorLine, activeSlide === 2 ? styles.active : "")}></div>
+          </div>
+
+          {/* Bottom right social links */}
+          <div className={styles.socialLinks}>
+            <a href="https://www.linkedin.com/in/mukilan-ss" className={styles.socialLink}>linkedin</a>
+            <a href="https://github.com/mukilan1" className={styles.socialLink}>github</a>
+            <a href="https://www.instagram.com/mukilanoxto" className={styles.socialLink}>instagram</a>
+          </div>
+
+          {/* Diagonal shadow overlay */}
+          <div className={styles.diagonalShadow}></div>
         </div>
-      </div>
-
-      {/* Bottom left slider indicator */}
-      <div className={styles.sliderIndicator}>
-        <div className={styles.indicatorLine + ' ' + styles.active}></div>
-        <div className={styles.indicatorLine}></div>
-        <div className={styles.indicatorLine}></div>
-      </div>
-
-      {/* Bottom right social links */}
-      <div className={styles.socialLinks}>
-        <a href="https://www.linkedin.com/in/mukilan-ss" className={styles.socialLink}>linkedin</a>
-        <a href="https://github.com/mukilan1" className={styles.socialLink}>github</a>
-        <a href="https://www.instagram.com/mukilanoxto" className={styles.socialLink}>instagram</a>
-      </div>
-
-      {/* Diagonal shadow overlay */}
-      <div className={styles.diagonalShadow}></div>
+      </motion.div>
     </section>
   );
 };

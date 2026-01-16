@@ -12,8 +12,6 @@ export default function Home() {
       <PremiumBoxesSection />
       <BoxingFightSection />
       <XFLEXOSection />
-      <div className="footer-spacer" />
-      <Footer />
     </>
   );
 }
