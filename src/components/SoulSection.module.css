@@ -1,8 +1,9 @@
 /* CODE Section Styles */
 .soulSection {
   min-height: 100vh;
-  background-color: #D7A9A3; /* Soft dusty pink */
-  color: #000000;
+  background-color: #000000;
+  /* Fallback to black for tech theme */
+  color: #FFFFFF;
   position: relative;
   padding: 0;
   display: flex;
@@ -15,8 +16,10 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* 4 equal columns */
   position: relative;
+  z-index: 2;
 }
 
 /* Individual Column Styling */
@@ -50,7 +53,7 @@
   font-family: 'Playfair Display', 'Times New Roman', serif;
   font-size: clamp(200px, 25vw, 400px);
   font-weight: 900;
-  color: #000000;
+  color: #FFFFFF;
   line-height: 0.8;
   text-align: center;
   letter-spacing: -0.05em;
@@ -71,7 +74,7 @@
   font-family: 'Playfair Display', 'Times New Roman', serif;
   font-size: clamp(200px, 25vw, 400px);
   font-weight: 900;
-  color: #000000;
+  color: #FFFFFF;
   line-height: 0.8;
   text-align: center;
   letter-spacing: -0.05em;
@@ -99,7 +102,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(20%) saturate(120%) hue-rotate(-10deg); /* Warm orange/red tones */
+  filter: sepia(20%) saturate(120%) hue-rotate(-10deg);
+  /* Warm orange/red tones */
 }
 
 /* Text Overlay inside O */
@@ -137,7 +141,7 @@
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   font-size: clamp(11px, 1vw, 14px);
   font-weight: 500;
-  color: #000000;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   line-height: 1.4;
@@ -146,7 +150,7 @@
 
 .arrow {
   font-size: clamp(16px, 1.5vw, 20px);
-  color: #000000;
+  color: #FFFFFF;
   margin-top: 5px;
 }
 
@@ -162,7 +166,7 @@
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   font-size: clamp(10px, 0.8vw, 12px);
   font-weight: 400;
-  color: #000000;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 1px;
   writing-mode: vertical-rl;
@@ -177,7 +181,7 @@
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   font-size: clamp(12px, 1vw, 16px);
   font-weight: 600;
-  color: #000000;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -185,28 +189,29 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .container {
-    grid-template-columns: 1fr 1fr; /* 2x2 grid for tablets */
+    grid-template-columns: 1fr 1fr;
+    /* 2x2 grid for tablets */
     grid-template-rows: 1fr 1fr;
     height: auto;
     min-height: 100vh;
   }
-  
+
   .column {
     min-height: 50vh;
     padding: 30px 15px;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .textBlock {
     bottom: 60px;
     right: 15px;
   }
-  
+
   .copyrightText {
     bottom: 30px;
     right: 15px;
   }
-  
+
   .columnNumber {
     bottom: 30px;
     left: 15px;
@@ -215,31 +220,32 @@
 
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr; /* Single column for mobile */
+    grid-template-columns: 1fr;
+    /* Single column for mobile */
     grid-template-rows: repeat(4, 1fr);
   }
-  
+
   .column {
     min-height: 25vh;
     padding: 20px 10px;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .column:last-child {
     border-bottom: none;
   }
-  
+
   .letter,
   .letterO {
     font-size: clamp(120px, 30vw, 200px);
   }
-  
+
   .imageWindow {
     width: clamp(100px, 25vw, 150px);
     height: clamp(100px, 25vw, 150px);
   }
-  
+
   .textBlock {
     position: relative;
     bottom: auto;
@@ -248,7 +254,7 @@
     max-width: 100%;
     text-align: center;
   }
-  
+
   .copyrightText {
     position: relative;
     bottom: auto;
@@ -256,7 +262,7 @@
     margin-top: 20px;
     transform: none;
   }
-  
+
   .verticalText {
     writing-mode: horizontal-tb;
     text-orientation: initial;
@@ -267,31 +273,54 @@
   .soulSection {
     min-height: 100vh;
   }
-  
+
   .container {
     height: auto;
   }
-  
+
   .column {
     min-height: 20vh;
     padding: 15px 8px;
   }
-  
+
   .letter,
   .letterO {
     font-size: clamp(80px, 35vw, 150px);
   }
-  
+
   .imageWindow {
     width: clamp(80px, 30vw, 120px);
     height: clamp(80px, 30vw, 120px);
   }
-  
+
   .paragraphText {
     font-size: clamp(10px, 2.5vw, 12px);
   }
-  
+
   .overlayText {
     font-size: clamp(8px, 2vw, 12px);
   }
+}
+
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.8;
+  /* Increased visibility */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Radial gradient: Transparent center to show video, dark edges */
+  background: radial-gradient(circle at center, transparent 0%, #000000 100%);
+  z-index: 1;
 }

@@ -17,7 +17,7 @@ const SoulSection: React.FC = () => {
       const viewportHeight = window.innerHeight;
 
       // Calculate scroll progress through the section
-      const scrollProgress = Math.max(0, Math.min(1, 
+      const scrollProgress = Math.max(0, Math.min(1,
         (viewportHeight - sectionTop) / (viewportHeight + sectionHeight)
       ));
 
@@ -27,7 +27,7 @@ const SoulSection: React.FC = () => {
 
         const speeds = [1.5, -2.2, 1.8, -1.2]; // Increased speeds for C, O, D, E
         const baseOffset = scrollProgress * 150 * speeds[index]; // Increased multiplier from 100 to 150
-        
+
         letter.style.transform = `translateY(${baseOffset}px)`;
       });
     };
@@ -42,11 +42,21 @@ const SoulSection: React.FC = () => {
 
   return (
     <section ref={sectionRef} className={styles.soulSection}>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={styles.videoBackground}
+      >
+        <source src="/Videos/Coding_Bg.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.overlay} />
       <div className={styles.container}>
         {/* Column 1: "C" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[0] = el; }}
               className={styles.letter}
             >
@@ -58,7 +68,7 @@ const SoulSection: React.FC = () => {
         {/* Column 2: "O" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[1] = el; }}
               className={styles.letterO}
             >
@@ -70,7 +80,7 @@ const SoulSection: React.FC = () => {
         {/* Column 3: "D" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[2] = el; }}
               className={styles.letter}
             >
@@ -82,7 +92,7 @@ const SoulSection: React.FC = () => {
         {/* Column 4: "E" */}
         <div className={styles.column}>
           <div className={styles.letterContainer}>
-            <span 
+            <span
               ref={(el) => { letterRefs.current[3] = el; }}
               className={styles.letter}
             >
