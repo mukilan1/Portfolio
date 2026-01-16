@@ -563,7 +563,7 @@ const BoxingFightSection: React.FC = () => {
             const isInView = entry.isIntersecting && entry.intersectionRatio > 0.2; // Reduced threshold
             const currentScrollY = window.scrollY;
             const direction = currentScrollY > prevScrollY.current ? 'down' : 'up';
-            
+
             if (isInView && direction === 'down' && !hasCompletedAnimation) {
               setIsVisible(true);
               setScrollDirection('down');
@@ -576,7 +576,7 @@ const BoxingFightSection: React.FC = () => {
               }
               // Don't change isVisible if animation is completed
             }
-            
+
             prevScrollY.current = currentScrollY;
           });
         });
@@ -599,16 +599,15 @@ const BoxingFightSection: React.FC = () => {
   }, [hasCompletedAnimation]); // Include hasCompletedAnimation in dependencies
 
   return (
-    <section 
-      ref={sectionRef} 
-      className={`${styles.boxingFightSection} ${styles.fullHeight} ${
-        hasCompletedAnimation ? styles.animate : 
-        (isVisible && scrollDirection === 'down') ? styles.animate : 
-        (scrollDirection === 'up' && !hasCompletedAnimation) ? styles.reverse : ''
-      }`}
+    <section
+      ref={sectionRef}
+      className={`${styles.boxingFightSection} ${styles.fullHeight} ${hasCompletedAnimation ? styles.animate :
+          (isVisible && scrollDirection === 'down') ? styles.animate :
+            (scrollDirection === 'up' && !hasCompletedAnimation) ? styles.reverse : ''
+        }`}
     >
       {/* Waves Background */}
-      <Waves 
+      <Waves
         lineColor="rgba(255, 255, 255, 0.3)"
         backgroundColor="black"
         waveSpeedX={0.0125}
@@ -621,10 +620,10 @@ const BoxingFightSection: React.FC = () => {
         tension={0.005}
         maxCursorMove={100}
       />
-      
+
       {/* Background overlay number */}
       {/* <ShaderAnimation isVisible={isVisible} /> */}
-      
+
       {/* Main content container */}
       <div className={styles.contentContainer}>
         {/* Left side - Text content */}
@@ -635,9 +634,9 @@ const BoxingFightSection: React.FC = () => {
 
         {/* Right side - Image */}
         <div className={styles.imageContainer}>
-          <Image 
-            src="/boxer-image.jpg" 
-            alt="" 
+          <Image
+            src="/Casual_sitting.jpeg"
+            alt="Case Study Image"
             width={500}
             height={350}
             className={styles.boxerImage}

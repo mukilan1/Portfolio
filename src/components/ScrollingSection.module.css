@@ -60,7 +60,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.1s ease-out;
+  cursor: pointer;
+  pointer-events: auto;
+  /* Re-enable pointer events since parent has none */
 }
 
 .imagePlaceholder {
@@ -71,6 +73,12 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #e0e0e0;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .placeholderText {
@@ -120,41 +128,101 @@
   z-index: 2;
 }
 
+/* Expanded View Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  /* Dark semi-transparent background */
+  backdrop-filter: blur(10px);
+  /* Blur effect */
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the expanded card is centered and large */
+.expandedContainer {
+  width: 80vw;
+  max-width: 1000px;
+  height: 80vh;
+  max-height: 800px;
+  background-color: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.expandedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Show full image */
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 102;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .scrollingSection {
     padding: 80px 40px;
   }
-  
+
   .imageWrapper {
     width: 200px;
     height: 150px;
   }
-  
+
   .position1 {
     top: 10%;
     left: 5%;
   }
-  
+
   .position2 {
     top: 20%;
     right: 10%;
   }
-  
+
   .position3 {
     top: 65%;
     left: 15%;
   }
-  
+
   .position4 {
     top: 75%;
     right: 5%;
   }
-  
+
   .position5 {
     top: 35%;
   }
-  
+
   .position6 {
     top: 85%;
   }
@@ -164,38 +232,43 @@
   .scrollingSection {
     padding: 60px 30px;
   }
-  
+
   .imageWrapper {
     width: 150px;
     height: 120px;
   }
-  
+
   .position1 {
     top: 5%;
     left: 0%;
   }
-  
+
   .position2 {
     top: 15%;
     right: 5%;
   }
-  
+
   .position3 {
     top: 70%;
     left: 10%;
   }
-  
+
   .position4 {
     top: 80%;
     right: 0%;
   }
-  
+
   .position5 {
     top: 30%;
   }
-  
+
   .position6 {
     top: 90%;
+  }
+
+  .expandedContainer {
+    width: 90vw;
+    height: 60vh;
   }
 }
 
@@ -203,44 +276,44 @@
   .scrollingSection {
     padding: 40px 20px;
   }
-  
+
   .imageWrapper {
     width: 120px;
     height: 100px;
   }
-  
+
   .mainTitle {
     font-size: clamp(50px, 12vw, 80px);
   }
-  
+
   .subtitle {
     font-size: 16px;
   }
-  
+
   .position1 {
     top: 0%;
     left: -10%;
   }
-  
+
   .position2 {
     top: 10%;
     right: 0%;
   }
-  
+
   .position3 {
     top: 75%;
     left: 5%;
   }
-  
+
   .position4 {
     top: 85%;
     right: -10%;
   }
-  
+
   .position5 {
     top: 25%;
   }
-  
+
   .position6 {
     top: 95%;
   }

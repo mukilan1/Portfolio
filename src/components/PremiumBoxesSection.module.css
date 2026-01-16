@@ -18,6 +18,16 @@
   padding: 0;
 }
 
+.spotlightContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Align content to bottom */
+  position: relative;
+}
+
 .boxesWrapper {
   display: flex;
   gap: 20px;
@@ -36,7 +46,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.15),
     0 8px 16px rgba(0, 0, 0, 0.1);
   transition: none;
@@ -59,7 +69,7 @@
 
 .premiumBox:hover {
   transform: translateY(-8px);
-  box-shadow: 
+  box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.2),
     0 12px 24px rgba(0, 0, 0, 0.15);
 }
@@ -88,11 +98,18 @@
   right: 24px;
   z-index: 3;
 }
-.contentDark { color: #000; }
-.contentLight { color: #fff; }
-.contentVisible { 
-  color: #ffffff; 
-  text-shadow: 
+
+.contentDark {
+  color: #000;
+}
+
+.contentLight {
+  color: #fff;
+}
+
+.contentVisible {
+  color: #ffffff;
+  text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.8),
     -1px -1px 0 #000000,
     1px -1px 0 #000000,
@@ -103,11 +120,13 @@
     -2px 2px 0 #000000,
     2px 2px 0 #000000;
 }
+
 .boxHeading {
   font-size: 36px;
   font-weight: 800;
   margin: 0;
 }
+
 .boxList {
   margin-top: 8px;
   padding-left: 18px;
@@ -115,12 +134,16 @@
   font-weight: bold;
   font-size: 18px;
 }
-.boxMeta { 
-  margin-top: 8px; 
-  font-size: 16px; 
-  font-weight: bold; 
+
+.boxMeta {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
 }
-.mt6 { margin-top: 6px; }
+
+.mt6 {
+  margin-top: 6px;
+}
 
 /* Box Numbers */
 .boxNumber {
@@ -139,7 +162,7 @@
 /* Red box number (white text) */
 .redBox .boxNumber {
   color: #ffffff;
-  text-shadow: 
+  text-shadow:
     0 4px 8px rgba(0, 0, 0, 0.5),
     0 2px 4px rgba(255, 255, 255, 0.1);
 }
@@ -147,7 +170,7 @@
 /* Black box number (white text) */
 .blackBox .boxNumber {
   color: #ffffff;
-  text-shadow: 
+  text-shadow:
     0 4px 8px rgba(0, 0, 0, 0.5),
     0 2px 4px rgba(255, 255, 255, 0.1);
 }
@@ -162,6 +185,7 @@
   z-index: 1;
   border-radius: 20px;
   overflow: hidden;
+  object-fit: cover;
 }
 
 /* Background Canvas for Shader Animation */
@@ -194,6 +218,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -205,6 +230,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -212,9 +238,17 @@
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animateFadeInDown {
@@ -246,6 +280,7 @@
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
 }
+
 .redBox::after {
   content: '';
   position: absolute;
@@ -275,18 +310,24 @@
 }
 
 @keyframes premiumGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 @keyframes premiumGlowDark {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -298,24 +339,24 @@
     padding: 0;
     margin: 0;
   }
-  
+
   .container {
     padding: 0;
     margin: 0;
   }
-  
+
   .boxesWrapper {
     flex-direction: column;
     gap: 0;
     padding: 0;
     margin: 0;
   }
-  
+
   .premiumBox {
     width: 600px;
     height: 400px;
   }
-  
+
   .boxNumber {
     font-size: 50px;
   }
@@ -326,23 +367,23 @@
     padding: 0;
     margin: 0;
   }
-  
+
   .container {
     padding: 0;
     margin: 0;
   }
-  
+
   .boxesWrapper {
     padding: 0;
     margin: 0;
     gap: 0;
   }
-  
+
   .premiumBox {
     width: 400px;
     height: 300px;
   }
-  
+
   .boxNumber {
     font-size: 40px;
   }
