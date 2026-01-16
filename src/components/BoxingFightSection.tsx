@@ -452,8 +452,8 @@ const BoxingFightSection: React.FC = () => {
                 {/* Right side - Image */}
                 <div className={styles.imageContainer}>
                   <Image
-                    src="/Casual_sitting.jpeg"
-                    alt="Case Study Image"
+                    src="/fashion_matching_agent.png"
+                    alt="Fashion Matching Agent"
                     width={500}
                     height={350}
                     className={styles.boxerImage}
@@ -476,9 +476,13 @@ const BoxingFightSection: React.FC = () => {
                 </div>
                 {/* Right Side - Visual */}
                 <div className={styles.imageContainer}>
-                  <div style={{ width: '400px', height: '300px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
-                    <span style={{ color: '#fff', fontSize: '24px', opacity: 0.5 }}>Architecture Diagram</span>
-                  </div>
+                  <Image
+                    src="/ecma_textile_platform.png"
+                    alt="Architecture Diagram"
+                    width={500}
+                    height={350}
+                    className={styles.boxerImage}
+                  />
                 </div>
               </div>
             </div>
@@ -497,9 +501,13 @@ const BoxingFightSection: React.FC = () => {
                 </div>
                 {/* Right Side - Visual */}
                 <div className={styles.imageContainer}>
-                  <div style={{ width: '400px', height: '300px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
-                    <span style={{ color: '#fff', fontSize: '24px', opacity: 0.5 }}>Tech Stack Grid</span>
-                  </div>
+                  <Image
+                    src="/billinall_software.png"
+                    alt="Tech Stack Grid"
+                    width={500}
+                    height={350}
+                    className={styles.boxerImage}
+                  />
                 </div>
               </div>
             </div>

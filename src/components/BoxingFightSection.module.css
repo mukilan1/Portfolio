@@ -170,8 +170,8 @@
   height: 350px;
   object-fit: cover;
   object-position: center;
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Slider indicator - Bottom left */
