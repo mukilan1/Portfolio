@@ -26,6 +26,8 @@
   justify-content: flex-end;
   /* Align content to bottom */
   position: relative;
+  background: transparent;
+  z-index: 1;
 }
 
 .boxesWrapper {

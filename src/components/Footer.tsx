@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Footer.module.css';
+import { ShootingStars } from './ui/shooting-stars';
+import { StarsBackground } from './ui/stars-background';
 
 const Footer: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
@@ -18,10 +20,10 @@ const Footer: React.FC = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
+
       // Calculate how close we are to the bottom
       const scrollPercent = scrollY / (documentHeight - windowHeight);
-      
+
       // Show footer only when 95% scrolled (very close to end), hide when less than 97%
       if (scrollPercent >= 0.95 && !isVisibleRef.current) {
         setIsVisible(true);
@@ -31,7 +33,7 @@ const Footer: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Initial check
     handleScroll();
 
@@ -68,7 +70,7 @@ const Footer: React.FC = () => {
               <div className={styles.ornamentLine}></div>
             </div>
           </div>
-          
+
           <div className={styles.contactSection}>
             <div className={styles.contactItem}>
               <span className={styles.contactLabel}>Email</span>
@@ -102,7 +104,7 @@ const Footer: React.FC = () => {
           <div className={styles.copyright}>
             <span>© 2025 Mukilan. All rights reserved.</span>
           </div>
-          
+
           <div className={styles.socialLinks}>
             <a href="https://www.linkedin.com/in/mukilan-ss" className={styles.socialLink}>
               <span className={styles.linkText}>LinkedIn</span>
@@ -125,13 +127,17 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Luxury Background Elements */}
+      {/* Luxury Background Elements */}
       <div className={styles.backgroundPattern}>
-        <div className={styles.patternGrid}></div>
-        <div className={styles.floatingOrbs}>
-          <div className={styles.orb}></div>
-          <div className={styles.orb}></div>
-          <div className={styles.orb}></div>
-        </div>
+        <StarsBackground starDensity={0.0005} allStarsTwinkle={true} />
+        <ShootingStars
+          starColor="#ffffff"
+          trailColor="#2EB9DF"
+          minSpeed={15}
+          maxSpeed={35}
+          starWidth={20}
+          starHeight={2}
+        />
       </div>
 
       {/* Shimmer Effect */}
