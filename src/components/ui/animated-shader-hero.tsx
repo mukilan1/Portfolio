@@ -67,7 +67,7 @@ void main(void) {
 
 const useShaderBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
 
   class WebGLRenderer {
@@ -77,6 +77,8 @@ const useShaderBackground = () => {
     private buffer: WebGLBuffer | null = null;
     private scale: number;
     private shaderSource: string;
+    // Added property to fix 'any' usage
+    private uniformLocations: { resolution: WebGLUniformLocation | null, time: WebGLUniformLocation | null } = { resolution: null, time: null };
 
     private vertexSrc = `#version 300 es
       precision highp float;
@@ -121,8 +123,9 @@ const useShaderBackground = () => {
       gl.enableVertexAttribArray(position);
       gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
 
-      (program as any).resolution = gl.getUniformLocation(program, 'resolution');
-      (program as any).time = gl.getUniformLocation(program, 'time');
+      // Fix: Use stored locations
+      this.uniformLocations.resolution = gl.getUniformLocation(program, 'resolution');
+      this.uniformLocations.time = gl.getUniformLocation(program, 'time');
     }
 
     updateScale(scale: number) {
@@ -139,8 +142,9 @@ const useShaderBackground = () => {
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.useProgram(program);
       gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
-      gl.uniform2f((program as any).resolution, this.canvas.width, this.canvas.height);
-      gl.uniform1f((program as any).time, now * 1e-3);
+      // Fix: Use stored locations
+      gl.uniform2f(this.uniformLocations.resolution, this.canvas.width, this.canvas.height);
+      gl.uniform1f(this.uniformLocations.time, now * 1e-3);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
   }
@@ -174,6 +178,7 @@ const useShaderBackground = () => {
       window.removeEventListener('resize', resize);
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return canvasRef;

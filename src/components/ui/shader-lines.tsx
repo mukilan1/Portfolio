@@ -9,7 +9,7 @@ export function ShaderLines() {
         camera: THREE.Camera | null
         scene: THREE.Scene | null
         renderer: THREE.WebGLRenderer | null
-        uniforms: any
+        uniforms: Record<string, { type: string; value: unknown }> | null
         animationId: number | null
     }>({
         camera: null,

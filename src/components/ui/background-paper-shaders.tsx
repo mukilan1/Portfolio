@@ -74,9 +74,9 @@ export function ShaderPlane({
 
     useFrame((state) => {
         if (mesh.current) {
-            // @ts-ignore
+            // @ts-expect-error: Threejs uniform types are dynamic
             mesh.current.material.uniforms.time.value = state.clock.elapsedTime;
-            // @ts-ignore
+            // @ts-expect-error: Threejs uniform types are dynamic
             mesh.current.material.uniforms.intensity.value = 1.0 + Math.sin(state.clock.elapsedTime * 2) * 0.3;
         }
     });
@@ -107,6 +107,7 @@ export function EnergyRing({
     useFrame((state) => {
         if (mesh.current) {
             mesh.current.rotation.z = state.clock.elapsedTime;
+            // @ts-expect-error: Material type intersection issue
             mesh.current.material.opacity = 0.5 + Math.sin(state.clock.elapsedTime * 3) * 0.3;
         }
     });
