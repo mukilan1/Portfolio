@@ -1,0 +1,362 @@
+[33mcommit 8c13726ec04f17d6b830ea15316799d48008d012[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: mukilan1 <mukilan1@users.noreply.github.com>
+Date:   Fri Jan 16 16:14:51 2026 +0530
+
+    added the Bg for the CODE Section with the Video
+
+[33mcommit 5f5fb93917ab2954917120388dc24246471aad6f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: mukilan1 <mukilan1@users.noreply.github.com>
+Date:   Mon Dec 8 23:14:00 2025 +0530
+
+    updated the versions.
+
+[33mcommit 7812a5291590d9286d20b00ac8eae7674688d722[m
+Merge: cd1f668 c8b5f8b
+Author: mukilan1 <mukilan1@users.noreply.github.com>
+Date:   Mon Dec 8 23:09:48 2025 +0530
+
+    Merge branch 'main'
+    This is the Merge of the Main with the Master, where the Master is the completed one.
+
+[33mcommit cd1f66869d52a1b87bd87b9c6c66d8dc87cca344[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Sep 19 11:22:33 2025 +0530
+
+    Add animated shader and sparkles backgrounds to premium boxes
+    
+    Introduces ShaderAnimation and ShaderAnimationBox4 components with custom WebGL shaders for animated backgrounds in the premium boxes section. Adds SparklesCore for a particle effect background. Updates PremiumBoxesSection to use these new visual effects, and adds corresponding CSS modules for layout and styling.
+
+[33mcommit 6eaeaa9a0a1d08c10dc5f0ba53a6ea85f324966b[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Sep 19 10:20:29 2025 +0530
+
+    Add animated WebGL background to premium red box
+    
+    Introduces a reusable WebGL shader background with pointer interaction for the red premium box in PremiumBoxesSection. Updates CSS for improved text visibility, larger headings, and new animation classes. Adjusts z-index stacking and styling for overlay content and background canvas.
+
+[33mcommit d773511b3ad6c6aaa868ad40e54726aaa8779662[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Sep 19 01:30:34 2025 +0530
+
+    Update PremiumBoxesSection styles for improved spacing
+    
+    Increased gap and padding in .boxesWrapper for better layout, and adjusted border-radius values for .premiumBox and glow effects to 20px for consistency.
+
+[33mcommit a93529bb52c58af95c21742a3556b811e8e7a88d[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Sep 19 01:15:12 2025 +0530
+
+    Revamp portfolio sections with updated content and structure
+    
+    Updated multiple sections to reflect new project names, descriptions, and personal branding. Replaced placeholder text and anime references with real project details in AnimeCatalogSection. Revised BlackSection and FashionistaSection to highlight skills, experience, and summary highlights. Enhanced PremiumBoxesSection with detailed overlays for experience, projects, education, and skills. Updated social and contact links in Footer. Improved ScrollingSection image alt texts and section IDs. XFLEXOSection now features new branding, highlights, and focus areas. CSS updated for new content overlays.
+
+[33mcommit ae7d4a76d348575c851f19b454b97b562afa7831[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Wed Sep 17 13:51:36 2025 +0530
+
+    Add Coding_Bg.mp4 and update wave background color
+    
+    Added a new background video file Coding_Bg.mp4 to the public/Videos directory. Changed the Waves component's backgroundColor prop from 'transparent' to 'black' in BoxingFightSection.tsx for improved visual appearance.
+
+[33mcommit cc12cf7665a5cae6f62c0ccc8799ce516831898d[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Wed Sep 17 11:01:46 2025 +0530
+
+    Add animated waves background to BoxingFightSection
+    
+    Introduces a new Waves component that renders an animated, interactive wave background using canvas and Perlin noise. The component is integrated into BoxingFightSection, enhancing the visual appeal with customizable wave parameters and cursor interaction.
+
+[33mcommit 27a67fd5b034e0fe0938ef1ea53fdd4ec3d3d1b1[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Wed Sep 10 10:30:27 2025 +0530
+
+    Update personal info in HeroSection data
+    
+    Revised the personal information in HeroSection.data.ts to reflect new job title, location, and company details.
+
+[33mcommit b31167943aa69cc336603d2fe947c33762273aa7[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Wed Sep 10 09:21:30 2025 +0530
+
+    Revamp footer layout and styling for full viewport
+    
+    Updated the footer to occupy the full viewport height, center its content with flexbox, and removed extra padding. Disabled border accents and adjusted container width and padding for improved responsiveness across breakpoints.
+
+[33mcommit 9c859be84f0f3f086052fbc7d8a8dc3aac838ccb[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 21:45:02 2025 +0530
+
+    Add reverse animation to BoxingFightSection
+    
+    Introduces a 'reverse' CSS class for smooth transition back to the initial state when scrolling up. Updates the BoxingFightSection component to track scroll direction and animation completion, applying the appropriate animation class based on user scroll behavior.
+
+[33mcommit e6dfac285717cbb1ac266eab1ac87c49ac8e4327[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 17:52:13 2025 +0530
+
+    Add animated shader background to BoxingFightSection
+    
+    Introduced a Three.js-based animated shader background via the new ShaderAnimation component. Updated CSS for full-height section and shader background styling, and integrated the animation to display when the section is visible.
+
+[33mcommit b400977032e6d14c9af37ab03af254a4ac0ead06[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 17:12:51 2025 +0530
+
+    Add particle effects to InfiniteHero background
+    
+    Introduces SparklesCore using tsparticles for animated particle effects in the InfiniteHero component. Updates dependencies to include @tsparticles/react, @tsparticles/slim, unicornstudio-react, and bumps framer-motion. Also adds suppressHydrationWarning to the html tag in layout.tsx for improved hydration handling.
+
+[33mcommit 9687dafdf68a7d05fa94ede79d514e9beed8b9dc[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 16:56:04 2025 +0530
+
+    Adjust shader background color blend
+    
+    Modified the color calculation in the ShaderBackground component to blend the output color with a blueish tint. This enhances the visual appearance of the background gradient.
+
+[33mcommit 3ba93e2e75a3618ff53d134ded5dc53411048d34[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 13:29:16 2025 +0530
+
+    Add animated shader background to Hero section
+    
+    Introduces an InfiniteHero React component using @react-three/fiber and custom shaders for a dynamic background in the Hero section. Updates HeroSection and its CSS for proper layering and color adjustments. Improves Footer scroll visibility logic. Adds dependencies for three.js, GSAP, and related packages.
+
+[33mcommit dc670dc9b9b14219cbaf560f7058678ccc6abfca[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 12:20:37 2025 +0530
+
+    Adjust footer visibility scroll thresholds and transition
+    
+    Updated the CSS transition for the footer to include opacity and changed the scroll percentage thresholds in Footer.tsx for showing and hiding the footer. The footer now appears when scrolled past 95% and hides when below 97%, improving the reveal behavior.
+
+[33mcommit 56efce60ad7cc4940bdf572f4c7dd794091f4e76[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 12:00:56 2025 +0530
+
+    Refactor footer to use scroll-triggered animation
+    
+    Footer is now fixed and animates into view when the user scrolls near the bottom of the page. CSS classes for visibility transitions were replaced with a single 'animate' class and keyframe animations. The Footer component logic was updated to use scroll position instead of IntersectionObserver, and the component is now included in the main page layout.
+
+[33mcommit 5ba2959d1a8c48d2c864f5e5a145fd08f2b191bc[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Sep 9 06:53:20 2025 +0530
+
+    Redesign footer with luxury theme and enhanced UI
+    
+    Revamped the footer with a luxury international design, adding premium borders, animated ornaments, enhanced contact and social sections, and background effects. Updated Footer.tsx to match the new structure and removed the EmptySection from the home page.
+
+[33mcommit 555c8596ffbaa1c7fc12ce88360db5c2d8bcb1a3[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Mon Sep 8 23:46:26 2025 +0530
+
+    Add footer component and update PremiumBoxesSection
+    
+    Introduced a new Footer component with associated styles and integrated it into the main layout. Commented out the premium box elements in PremiumBoxesSection, likely for design or content adjustments.
+
+[33mcommit 6221b490d467dd1e28cecc4b69bef67e8f891ffc[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Mon Sep 8 22:40:58 2025 +0530
+
+    Add XFLEXOSection component with styled grid layout
+    
+    Introduces the XFLEXOSection React component and its associated CSS module, featuring a five-panel asymmetric grid layout with animated transitions and responsive design. The section is integrated into the main page and exported from the components index for use throughout the app.
+
+[33mcommit dc814d9282ce821eb2ad1f7c8381e3e8c11f0767[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Mon Sep 8 15:53:01 2025 +0530
+
+    Add animated heading to BoxingFightSection
+    
+    Split the main heading into two spans and apply slide-in animations for each part when the section is animated. Updated CSS and JSX to enhance visual presentation.
+
+[33mcommit e4640b48b36b7c20cb4e09f67a8bb10382def334[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Mon Sep 8 14:50:28 2025 +0530
+
+    Enhance BoxingFightSection animation and responsiveness
+    
+    Replaced keyframe slide-in animation with a scale and rotate transition triggered by IntersectionObserver for smoother entry and hardware acceleration. Improved responsive design by adjusting section size and border radius across breakpoints, and optimized performance with CSS and observer settings.
+
+[33mcommit f466f2881c37558578c73229d70b956ae945d97e[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Sep 6 22:56:07 2025 +0530
+
+    Add BoxingFightSection component to homepage
+    
+    Introduces the BoxingFightSection React component with associated CSS for a pixel-perfect boxing fight section. Updates the homepage to include this new section and exports it from the components index for use elsewhere.
+
+[33mcommit a95c72e277e41ddad484009d70822b03f3e7d89a[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Tue Jul 22 21:14:25 2025 +0530
+
+    Add initial section and UI component files
+    
+    Created placeholder files for multiple section components and their corresponding CSS modules, as well as UI components. These files are currently empty and set up the structure for future implementation.
+
+[33mcommit 2dfcbaca054043f8d6a597d4a3c58ed68bf1b2b3[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 19:55:21 2025 +0530
+
+    Adjust boxNumber font size and positioning in PremiumBoxesSection
+    
+    Reduced the font size of .boxNumber across breakpoints and changed its positioning to absolute with specific top and left offsets. These changes improve layout consistency and visual alignment in the PremiumBoxesSection component.
+
+[33mcommit c8d922e256548b5f6576ddfa286a1b8749cc3f3b[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 19:50:31 2025 +0530
+
+    Add second animated section to PremiumBoxesSection
+    
+    Introduces a second section with two additional premium boxes (03 and 04), each with distinct entrance animations. The scroll handler is updated to animate both sections independently, with the new boxes animating from the left and bottom respectively.
+
+[33mcommit 3a360302747352ef397c1c49ea8c2195b273c89b[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 19:37:46 2025 +0530
+
+    Add PremiumBoxesSection component with animated boxes
+    
+    Introduces the PremiumBoxesSection React component, including its CSS module for styling and scroll-based animation. The section displays two animated premium boxes (red and black) that slide into view as the user scrolls. The component is registered in the index and added to the home page layout.
+
+[33mcommit 0b1330c8fb8ede357d07ef7f0f9fadec7439844b[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 13:10:26 2025 +0530
+
+    Add scroll-based card animations to AnimeCatalogSection
+    
+    Introduces scroll-triggered animations for the first four anime cards in the AnimeCatalogSection. Cards now animate into view with transitions as the user scrolls, and the section has been refactored to use static card data and new visual elements for each card. The 'Show More' functionality and dynamic card rendering have been removed in favor of a fixed, animated layout.
+
+[33mcommit e4e8386676840a073eb7443ddb704bf158a1d636[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 12:45:57 2025 +0530
+
+    Add AnimeCatalogSection component and styles
+    
+    Introduces the AnimeCatalogSection component with a responsive card grid, custom CSS for anime-themed cards, and a show more/less toggle. Updates the home page to include the new section and exports the component in the index file.
+
+[33mcommit b62162059663b66bf6406111ddd18e8f3a1bef50[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 08:03:36 2025 +0530
+
+    Refine styles and simplify SoulSection layout
+    
+    Updated HeroSection and ScrollingSection CSS for improved typography, spacing, and navigation appearance. Simplified SoulSection by removing portrait image, overlay text, copyright, and column numbers for a cleaner layout.
+
+[33mcommit 9145e9b91a8b4a5ef2152ba3b7aa71e1abe84691[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Sat Jul 19 07:01:52 2025 +0530
+
+    Update styles and remove subtitle in sections
+    
+    Changed the background color in FashionistaSection.module.css to a softer shade and removed the subtitle paragraph from ScrollingSection.tsx for a cleaner section header.
+
+[33mcommit 98771436f8a20e1490fd691cebf64df843c054e6[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Jul 18 22:21:40 2025 +0530
+
+    fixed the bg in white , and animated the code faster
+
+[33mcommit 5c09dea078b4299251df1b11dbbd2bb057263646[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Jul 18 20:47:25 2025 +0530
+
+    Add SoulSection component with animated CODE layout
+    
+    Introduces the SoulSection React component, its CSS module, and integrates it into the home page. The section displays animated 'C', 'O', 'D', 'E' letters with scroll-based effects, a portrait image inside the 'O', and responsive design for various screen sizes.
+
+[33mcommit b52ad83dfb317ea87f19d6b9c0ad4d2e26d88fa8[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Jul 18 12:28:14 2025 +0530
+
+    Implement train-like scroll animations for FashionistaSection and BlackSection - Sections now slide continuously through viewport like train cars - FashionistaSection moves left to right, BlackSection moves right to left - Smooth scroll-responsive movement with no stopping in center
+
+[33mcommit c8b5f8be6e407d77b252fd67bcf3effed8438d2e[m
+Merge: de5dbea 2767074
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Jul 18 12:28:01 2025 +0530
+
+    Merge pull request #5 from mukilan1/master
+    
+    Add scroll-triggered slide animation to FashionistaSection - Section …
+
+[33mcommit 2767074fb90e6df0a7b9ad495dc295c727a89a49[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Fri Jul 18 12:12:49 2025 +0530
+
+    Add scroll-triggered slide animation to FashionistaSection - Section now slides in from left on every scroll - Reduced section height and removed footer - Maintains repeatable animation behavior
+
+[33mcommit de5dbeafdeaab2bd22eb2e1e8e02d9b9e0db0eb1[m
+Merge: 0fa12ab 4b440ed
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 15:10:47 2025 +0530
+
+    Merge pull request #4 from mukilan1/master
+    
+    Master
+
+[33mcommit 4b440ede04c195a0ae3a42806c5d2f358b3ffbfb[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 15:08:39 2025 +0530
+
+    Add scroll animations to HeroSection and remove description text
+
+[33mcommit c89a73f487237323b7de6b00d9e698302c5b3869[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 15:01:39 2025 +0530
+
+    Add ScrollingSection component with scroll-triggered animations
+
+[33mcommit 0147c70df13ec01a51ece907cba2f8bfbd57fd80[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 13:34:58 2025 +0530
+
+    Add GradientText component: integrated shadcn/ui structure, motion animations, and applied gradient effect to SOFTWARE title
+
+[33mcommit 0fa12ab19f31259fcafc8d9fa80d627eaa0d3c9a[m
+Merge: 4b92e3f e09da66
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 12:34:02 2025 +0530
+
+    Merge pull request #3 from mukilan1/master
+    
+    Update hero section: changed name to Mukilan, title to Software Devel…
+
+[33mcommit e09da6693e7f87ce67dade17b1916d242e859059[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 12:33:20 2025 +0530
+
+    Update hero section: changed name to Mukilan, title to Software Developer, added light purple background, and positioned name at bottom
+
+[33mcommit 4b92e3f6128292b13550a51980b73d51c39488be[m
+Merge: a793f9c 0be8b23
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 11:29:25 2025 +0530
+
+    Merge pull request #1 from mukilan1/master
+    
+    Master
+
+[33mcommit 0be8b231e5bb6707bf5571f9ccb87126c324b12a[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 11:26:46 2025 +0530
+
+    Update README.md with latest changes
+
+[33mcommit 4f2cb10c2ce47cd2226582ccf6a83eae55f34695[m
+Merge: 2d07d6a a793f9c
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 10:56:50 2025 +0530
+
+    Merge branch 'main' into master - resolved README.md conflict
+
+[33mcommit a793f9cb898c6ebb040e546f3131bb86a9504146[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 10:23:41 2025 +0530
+
+    Initial commit
+
+[33mcommit 2d07d6a65f74d97b820ee27a06d07dcabe04f577[m
+Author: Mukilan <74693526+mukilan1@users.noreply.github.com>
+Date:   Thu Jul 17 09:59:57 2025 +0530
+
+    Initial commit from Create Next App

@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-bottom: 20vh;
+  /* Added space before footer */
+  padding-bottom: 50px;
 }
 
 /* Grid Container */
@@ -494,11 +497,10 @@
   }
 
   .panel {
-    padding: 20px;
-    min-height: auto;
-    transform: translateX(0);
-    /* Reset animations for mobile */
-    opacity: 1;
+    padding: 15px;
+    /* Reduced padding for mobile */
+    min-height: 160px;
+    /* Adjusted minimum height for mobile */
   }
 
   .mainDescription {
@@ -528,23 +530,11 @@
   }
 
   .panel {
-    padding: 16px;
-    border-radius: 10px;
-  }
-
-  .mainHeadline {
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
-    margin: 10px 0;
-  }
-
-  .secondaryHeadline {
-    font-size: clamp(1rem, 4vw, 1.5rem);
-  }
-
-  .mainDescription,
-  .secondaryDescription {
-    font-size: clamp(0.7rem, 1vw, 0.9rem);
-    margin: 10px 0;
+    padding: 12px;
+    /* Further reduced padding for small screens */
+    border-radius: 8px;
+    min-height: 140px;
+    /* Adjusted minimum height for small screens */
   }
 
   .logoRepeated {
@@ -563,65 +553,13 @@
   }
 
   .panelTitle {
-    font-size: clamp(0.8rem, 1.3vw, 1rem);
-    margin: 4px 0;
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    /* Smaller title for very small screens */
   }
 
   .panelText {
-    font-size: clamp(0.65rem, 0.9vw, 0.8rem);
-    margin: 4px 0;
-  }
-
-  .logoMedium,
-  .logoSmall {
-    width: 24px;
-    height: 24px;
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-  }
-
-  .panelContent {
-    gap: 6px;
-  }
-
-  .accentElement {
-    height: 40px;
-    width: 3px;
-    bottom: 12px;
-    right: 12px;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-  .gridContainer {
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .panel {
-    padding: 12px;
-    border-radius: 8px;
-  }
-
-  .mainHeadline {
-    font-size: clamp(1rem, 6vw, 1.4rem);
-  }
-
-  .panelTitle {
-    font-size: 0.75rem;
-  }
-
-  .panelText {
-    font-size: 0.6rem;
-  }
-
-  .logoMedium,
-  .logoSmall,
-  .logoRepeated span {
-    width: 18px;
-    height: 18px;
-    font-size: 0.75rem;
+    font-size: clamp(0.55rem, 0.7vw, 0.75rem);
+    /* Smaller text for very small screens */
   }
 }
 

@@ -10,7 +10,7 @@ export const heroData: HeroData = {
   content: {
     title: ['SOFTWARE', 'DEVELOPER'],
     description: [],
-    imageUrl: '/portrait.jpg',
+    imageUrl: '/Main_face.png',
     imageAlt: 'Mukilan - Software Developer'
   },
   navigation: [

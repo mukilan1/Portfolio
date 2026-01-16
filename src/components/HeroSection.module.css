@@ -211,30 +211,30 @@
   .heroContainer {
     padding: 30px 40px;
   }
-  
+
   .headerInfo {
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .heroContent {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
     min-height: calc(100vh - 180px);
   }
-  
+
   .heroLeft {
     max-width: 100%;
     margin-bottom: 60px;
   }
-  
+
   .heroRight {
     max-width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
   }
-  
+
   .heroName {
     position: absolute;
     bottom: 30px;
@@ -246,169 +246,54 @@
 
 @media (max-width: 768px) {
   .heroContainer {
-    padding: 20px 24px;
-    min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
+    padding: 20px 30px;
   }
-  
-  .heroHeader {
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
+
   .headerInfo {
-    flex-direction: row;
     gap: 15px;
-    flex-wrap: wrap;
   }
-  
-  .headerInfo .name,
-  .headerInfo .jobTitle,
-  .headerInfo .location {
-    font-size: 12px;
-  }
-  
-  .headerNav {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  
-  .headerNav a {
-    font-size: 12px;
-    padding: 4px 0;
-  }
-  
-  .headerNav span {
-    margin: 0 8px;
-    font-size: 12px;
-  }
-  
-  .heroContent {
-    flex-direction: column;
-    height: auto;
-    min-height: calc(100vh - 200px);
-    padding-bottom: 120px;
-  }
-  
-  .heroTitle {
-    font-size: clamp(48px, 12vw, 80px);
-    margin-bottom: 30px;
-  }
-  
+
   .heroImage {
     width: 100%;
-    max-width: 100%;
-    height: 200px;
+    max-width: 350px;
+    height: 250px;
   }
-  
+
   .heroDescription {
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
   }
-  
-  .descriptionText {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-  
+
   .arrowIcon {
     margin-top: 0;
-  }
-  
-  .arrowIcon svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .heroName {
-    font-size: clamp(48px, 12vw, 80px);
-    bottom: 20px;
-    right: 24px;
-    left: auto;
-    text-align: right;
   }
 }
 
 @media (max-width: 480px) {
   .heroContainer {
-    padding: 16px;
+    padding: 20px;
   }
-  
+
   .heroHeader {
-    gap: 16px;
-    margin-bottom: 30px;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
   }
-  
+
   .headerInfo {
-    gap: 8px;
-  }
-  
-  .headerInfo .name,
-  .headerInfo .jobTitle,
-  .headerInfo .location {
-    font-size: 10px;
-  }
-  
-  .headerNav a {
-    font-size: 10px;
-  }
-  
-  .headerNav span {
-    margin: 0 6px;
-    font-size: 10px;
-  }
-  
-  .heroContent {
-    padding-bottom: 100px;
-    min-height: calc(100dvh - 160px);
-  }
-  
-  .heroTitle {
-    font-size: clamp(36px, 14vw, 60px);
-    margin-bottom: 24px;
-  }
-  
-  .heroImage {
-    height: 160px;
-    border-radius: 6px;
-  }
-  
-  .heroDescription {
-    margin-top: 24px;
     gap: 10px;
   }
-  
-  .descriptionText {
-    font-size: 11px;
-  }
-  
-  .heroName {
-    font-size: clamp(36px, 14vw, 60px);
-    bottom: 16px;
-    right: 16px;
-  }
-}
 
-/* Extra small devices */
-@media (max-width: 360px) {
-  .heroContainer {
-    padding: 12px;
+  .heroImage {
+    width: 100%;
+    height: 200px;
   }
-  
-  .heroTitle,
+
   .heroName {
-    font-size: clamp(28px, 16vw, 44px);
-  }
-  
-  .headerInfo .name,
-  .headerInfo .jobTitle,
-  .headerInfo .location {
-    font-size: 9px;
-  }
-  
-  .headerNav a,
-  .headerNav span {
-    font-size: 9px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    text-align: right;
   }
 }

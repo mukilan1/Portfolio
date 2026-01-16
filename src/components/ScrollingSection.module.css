@@ -60,7 +60,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.1s ease-out;
+  cursor: pointer;
+  pointer-events: auto;
+  /* Re-enable pointer events since parent has none */
 }
 
 .imagePlaceholder {
@@ -71,6 +73,12 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #e0e0e0;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .placeholderText {
@@ -120,6 +128,66 @@
   z-index: 2;
 }
 
+/* Expanded View Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  /* Dark semi-transparent background */
+  backdrop-filter: blur(10px);
+  /* Blur effect */
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the expanded card is centered and large */
+.expandedContainer {
+  width: 80vw;
+  max-width: 1000px;
+  height: 80vh;
+  max-height: 800px;
+  background-color: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.expandedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Show full image */
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 102;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .scrollingSection {
@@ -162,23 +230,7 @@
 
 @media (max-width: 768px) {
   .scrollingSection {
-    padding: 60px 24px;
-    min-height: auto;
-  }
-
-  .centeredText {
-    max-width: 100%;
-    padding: 40px 0;
-  }
-
-  .mainTitle {
-    font-size: clamp(48px, 14vw, 80px);
-    margin-bottom: 24px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-    line-height: 1.5;
+    padding: 60px 30px;
   }
 
   .imageWrapper {
@@ -215,7 +267,11 @@
 
   .position6 {
     top: 90%;
-    display: none;
+  }
+
+  .expandedContainer {
+    width: 90vw;
+    height: 60vh;
   }
 }
 
@@ -225,8 +281,9 @@
     min-height: 50vh;
   }
 
-  .centeredText {
-    padding: 32px 0;
+  .imageWrapper {
+    width: 120px;
+    height: 100px;
   }
 
   .mainTitle {
@@ -236,17 +293,7 @@
   }
 
   .subtitle {
-    font-size: 12px;
-  }
-
-  .imageWrapper {
-    width: 80px;
-    height: 60px;
-    border-radius: 6px;
-  }
-
-  .placeholderText {
-    font-size: 10px;
+    font-size: 16px;
   }
 
   .position1 {
@@ -266,36 +313,14 @@
 
   .position4 {
     top: 85%;
-    right: 0%;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-  .scrollingSection {
-    padding: 40px 12px;
+    right: -10%;
   }
 
-  .centeredText {
-    padding: 28px 0;
+  .position5 {
+    top: 25%;
   }
 
-  .mainTitle {
-    font-size: clamp(32px, 20vw, 52px);
-    line-height: 1;
-  }
-
-  .subtitle {
-    font-size: 11px;
-  }
-
-  .imageWrapper {
-    width: 60px;
-    height: 45px;
-    border-radius: 4px;
-  }
-
-  .placeholderText {
-    font-size: 8px;
+  .position6 {
+    top: 95%;
   }
 }

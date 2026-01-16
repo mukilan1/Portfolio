@@ -97,22 +97,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
             ))}
           </h1>
-          
-          <div ref={imageRef} className={styles.heroImageContainer}>
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              width={400}
-              height={300}
-              className={styles.heroImage}
-              priority
-            />
-          </div>
+
+
 
           <div className={styles.heroDescription}>
             <div className={styles.arrowIcon}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <p className={styles.descriptionText} dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }} />

@@ -21,55 +21,37 @@ const SoulSection: React.FC = () => {
         (viewportHeight - sectionTop) / (viewportHeight + sectionHeight)
       ));
 
-      const isMobile = window.innerWidth <= 768;
+      // Animate each letter with different directions and speeds
+      letterRefs.current.forEach((letter, index) => {
+        if (!letter) return;
 
-      if (isMobile) {
-        // Mobile: Horizontal left-right alternating animation
-        letterRefs.current.forEach((letter, index) => {
-          if (!letter) return;
+        const speeds = [1.5, -2.2, 1.8, -1.2]; // Increased speeds for C, O, D, E
+        const baseOffset = scrollProgress * 150 * speeds[index]; // Increased multiplier from 100 to 150
 
-          // Alternating directions: 1 = left-to-right, -1 = right-to-left
-          const direction = index % 2 === 0 ? 1 : -1;
-          const speed = 0.8 + (index * 0.15); // Slightly different speeds
-
-          // Start from off-screen (-30px or 30px) and animate to center (0)
-          const startOffset = -30 * direction;
-          const currentOffset = startOffset + (scrollProgress * 30 * direction);
-
-          letter.style.transform = `translateX(${currentOffset}px)`;
-          letter.style.opacity = `${Math.min(1, scrollProgress * 2)}`;
-        });
-      } else {
-        // Desktop: Vertical parallax animation
-        letterRefs.current.forEach((letter, index) => {
-          if (!letter) return;
-
-          const speeds = [1.5, -2.2, 1.8, -1.2]; // Speeds for C, O, D, E
-          const baseOffset = scrollProgress * 150 * speeds[index];
-
-          letter.style.transform = `translateY(${baseOffset}px)`;
-          letter.style.opacity = '1';
-        });
-      }
-    };
-
-    const handleResize = () => {
-      // Re-evaluate on resize
-      handleScroll();
+        letter.style.transform = `translateY(${baseOffset}px)`;
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
     handleScroll(); // Initial call
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
     <section ref={sectionRef} className={styles.soulSection}>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={styles.videoBackground}
+      >
+        <source src="/Videos/Coding_Bg.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.overlay} />
       <div className={styles.container}>
         {/* Column 1: "C" */}
         <div className={styles.column}>

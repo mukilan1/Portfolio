@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ScrollingSection.module.css';
 
 const ScrollingSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageContainersRef = useRef<HTMLDivElement[]>([]);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,16 +41,16 @@ const ScrollingSection: React.FC = () => {
   }, []);
 
   const images = [
-    { src: '/placeholder1.jpg', alt: 'Turftime' },
-    { src: '/placeholder2.jpg', alt: 'Billinall' },
-    { src: '/placeholder3.jpg', alt: 'ECMA Textile B2B' },
-    { src: '/placeholder4.jpg', alt: 'Fashion Match AI' },
-    { src: '/placeholder5.jpg', alt: 'DisasterLink' },
-    { src: '/placeholder6.jpg', alt: 'Dark Pattern Buster' },
+    { src: '/Helmet_Project.jpeg', alt: 'Turftime', id: 'img1' },
+    { src: '/Speaker_Poster.jpeg', alt: 'DisasterLink', id: 'img2' },
+    { src: '/Guiness_Participation_Certificate.jpeg', alt: 'ECMA Textile B2B', id: 'img3' },
+    { src: '/Instagram_creator_Poster.jpeg', alt: 'Fashion Matching Agent', id: 'img4' },
+    { src: '/DPBH_Hackathon_Certificate.jpeg', alt: 'Billinall', id: 'img5' },
+    { src: '/Speech_1.jpeg', alt: 'Dark Pattern Buster', id: 'img6' },
   ];
 
   return (
-  <section ref={sectionRef} id="work" className={styles.scrollingSection}>
+    <section ref={sectionRef} id="work" className={styles.scrollingSection}>
       <div className={styles.centeredText}>
         <h2 className={styles.mainTitle}>
           <span className={styles.titleLine}>CREATIVE</span>
@@ -58,19 +60,53 @@ const ScrollingSection: React.FC = () => {
 
       <div className={styles.imageContainer}>
         {images.map((image, index) => (
-          <div
-            key={index}
-            ref={(el) => {
+          <motion.div
+            key={image.id}
+            layoutId={image.id}
+            onClick={() => setSelectedId(image.id)}
+            ref={(el: HTMLDivElement) => {
               if (el) imageContainersRef.current[index] = el;
             }}
             className={`${styles.imageWrapper} ${styles[`position${index + 1}`]}`}
           >
             <div className={styles.imagePlaceholder}>
-              <span className={styles.placeholderText}>{image.alt}</span>
+              <motion.img
+                src={image.src}
+                alt={image.alt}
+                className={styles.projectImage}
+              />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
+
+      <AnimatePresence>
+        {selectedId && (
+          <div className={styles.overlay} onClick={() => setSelectedId(null)}>
+            <motion.div
+              layoutId={selectedId}
+              className={styles.expandedContainer}
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.8, rotate: -180, opacity: 0 }}
+              animate={{ scale: 1, rotate: 0, opacity: 1 }}
+              exit={{ scale: 0.8, rotate: 180, opacity: 0 }}
+              transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+            >
+              <button className={styles.closeButton} onClick={() => setSelectedId(null)}>×</button>
+              {(() => {
+                const selectedImage = images.find(img => img.id === selectedId);
+                return (
+                  <motion.img
+                    src={selectedImage?.src}
+                    alt={selectedImage?.alt}
+                    className={styles.expandedImage}
+                  />
+                );
+              })()}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
